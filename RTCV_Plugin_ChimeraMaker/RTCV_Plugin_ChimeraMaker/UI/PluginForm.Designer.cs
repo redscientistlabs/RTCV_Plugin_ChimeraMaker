@@ -31,7 +31,7 @@ namespace CHIMERA_MAKER.UI
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PluginForm));
             this.logoPanel = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbName = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label4 = new System.Windows.Forms.Label();
@@ -51,6 +51,8 @@ namespace CHIMERA_MAKER.UI
             this.label2 = new System.Windows.Forms.Label();
             this.tbBaseRom = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.cbSendToStash = new System.Windows.Forms.CheckBox();
+            this.cbStockpilePlayer = new System.Windows.Forms.CheckBox();
             this.label13 = new System.Windows.Forms.Label();
             this.btnExport = new System.Windows.Forms.Button();
             this.btnGenerate = new System.Windows.Forms.Button();
@@ -62,8 +64,7 @@ namespace CHIMERA_MAKER.UI
             this.rbFullMerge = new System.Windows.Forms.RadioButton();
             this.nmBlastlayerAmount = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
-            this.cbStockpilePlayer = new System.Windows.Forms.CheckBox();
-            this.cbSendToStash = new System.Windows.Forms.CheckBox();
+            this.btnHelp = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -82,16 +83,16 @@ namespace CHIMERA_MAKER.UI
             this.logoPanel.TabIndex = 0;
             this.logoPanel.Tag = "color:dark1";
             // 
-            // label1
+            // lbName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(424, 115);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(166, 20);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Very Prototype Edition";
+            this.lbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbName.ForeColor = System.Drawing.Color.White;
+            this.lbName.Location = new System.Drawing.Point(247, 115);
+            this.lbName.Name = "lbName";
+            this.lbName.Size = new System.Drawing.Size(343, 29);
+            this.lbName.TabIndex = 1;
+            this.lbName.Text = "_";
+            this.lbName.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // tabControl1
             // 
@@ -136,7 +137,7 @@ namespace CHIMERA_MAKER.UI
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(13, 20);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(540, 16);
+            this.label4.Size = new System.Drawing.Size(539, 16);
             this.label4.TabIndex = 16;
             this.label4.Text = "If you already have a pre-built stockpile, you can skip straight to the Chimera G" +
     "enerator tab";
@@ -308,6 +309,28 @@ namespace CHIMERA_MAKER.UI
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Chimera Generator";
             // 
+            // cbSendToStash
+            // 
+            this.cbSendToStash.AutoSize = true;
+            this.cbSendToStash.ForeColor = System.Drawing.Color.White;
+            this.cbSendToStash.Location = new System.Drawing.Point(19, 286);
+            this.cbSendToStash.Name = "cbSendToStash";
+            this.cbSendToStash.Size = new System.Drawing.Size(161, 17);
+            this.cbSendToStash.TabIndex = 9;
+            this.cbSendToStash.Text = "Send Result to Stash History";
+            this.cbSendToStash.UseVisualStyleBackColor = true;
+            // 
+            // cbStockpilePlayer
+            // 
+            this.cbStockpilePlayer.AutoSize = true;
+            this.cbStockpilePlayer.ForeColor = System.Drawing.Color.White;
+            this.cbStockpilePlayer.Location = new System.Drawing.Point(19, 263);
+            this.cbStockpilePlayer.Name = "cbStockpilePlayer";
+            this.cbStockpilePlayer.Size = new System.Drawing.Size(293, 17);
+            this.cbStockpilePlayer.TabIndex = 8;
+            this.cbStockpilePlayer.Text = "Use Stockpile Player instead of Glitch Harvester (source)";
+            this.cbStockpilePlayer.UseVisualStyleBackColor = true;
+            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -433,27 +456,15 @@ namespace CHIMERA_MAKER.UI
             this.label10.TabIndex = 2;
             this.label10.Text = "Amount of blastlayers to merge:";
             // 
-            // cbStockpilePlayer
+            // btnHelp
             // 
-            this.cbStockpilePlayer.AutoSize = true;
-            this.cbStockpilePlayer.ForeColor = System.Drawing.Color.White;
-            this.cbStockpilePlayer.Location = new System.Drawing.Point(19, 263);
-            this.cbStockpilePlayer.Name = "cbStockpilePlayer";
-            this.cbStockpilePlayer.Size = new System.Drawing.Size(293, 17);
-            this.cbStockpilePlayer.TabIndex = 8;
-            this.cbStockpilePlayer.Text = "Use Stockpile Player instead of Glitch Harvester (source)";
-            this.cbStockpilePlayer.UseVisualStyleBackColor = true;
-            // 
-            // cbSendToStash
-            // 
-            this.cbSendToStash.AutoSize = true;
-            this.cbSendToStash.ForeColor = System.Drawing.Color.White;
-            this.cbSendToStash.Location = new System.Drawing.Point(19, 286);
-            this.cbSendToStash.Name = "cbSendToStash";
-            this.cbSendToStash.Size = new System.Drawing.Size(161, 17);
-            this.cbSendToStash.TabIndex = 9;
-            this.cbSendToStash.Text = "Send Result to Stash History";
-            this.cbSendToStash.UseVisualStyleBackColor = true;
+            this.btnHelp.Location = new System.Drawing.Point(10, 115);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Size = new System.Drawing.Size(95, 23);
+            this.btnHelp.TabIndex = 3;
+            this.btnHelp.Text = "Click for help";
+            this.btnHelp.UseVisualStyleBackColor = true;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
             // PluginForm
             // 
@@ -461,8 +472,9 @@ namespace CHIMERA_MAKER.UI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(601, 530);
+            this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbName);
             this.Controls.Add(this.logoPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -470,6 +482,7 @@ namespace CHIMERA_MAKER.UI
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Tag = "color:dark1";
             this.Text = "Plugin Form";
+            this.Load += new System.EventHandler(this.PluginForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -480,13 +493,12 @@ namespace CHIMERA_MAKER.UI
             ((System.ComponentModel.ISupportInitialize)(this.tbSprinkleAmount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmBlastlayerAmount)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
         #endregion
 
         private System.Windows.Forms.Panel logoPanel;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbName;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TextBox tbBaseRom;
@@ -519,5 +531,6 @@ namespace CHIMERA_MAKER.UI
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.CheckBox cbSendToStash;
         private System.Windows.Forms.CheckBox cbStockpilePlayer;
+        private System.Windows.Forms.Button btnHelp;
     }
 }

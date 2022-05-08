@@ -20,7 +20,7 @@ namespace CHIMERA_MAKER
         // >>> Make sure you rename BOTH the namespace and class (Very important)
         public string Description => "This plugin use romhacks to generate corruptions";
         public string Author => "Ircluzar";
-        public Version Version => new Version(0, 0, 1);
+        public Version Version => new Version(1, 0, 0);
 
         //-----[ Plugin loading workflow ]-----
 

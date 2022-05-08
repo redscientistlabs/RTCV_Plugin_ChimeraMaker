@@ -17,8 +17,9 @@ namespace CHIMERA_MAKER.UI
     using RTCV.Vanguard;
     using System.IO;
     using System.Text.RegularExpressions;
+    using RTCV.UI.Modular;
 
-    public partial class PluginForm : Form
+    public partial class PluginForm : ComponentForm, IColorize
     {
         public CHIMERA_MAKER plugin;
 
@@ -246,6 +247,60 @@ namespace CHIMERA_MAKER.UI
 
             prevChimera = Chimera;
 
+        }
+
+        private void PluginForm_Load(object sender, EventArgs e)
+        {
+            string text;
+
+            Random rnd = new Random((int)DateTime.Now.Ticks);
+            int chance = rnd.Next(10);
+            switch(chance)
+            {
+                case 1:
+                    text = "Mashes things together";
+                    break;
+                case 2:
+                    text = "2.523 heads better than one";
+                    break;
+                case 3:
+                    text = "Brutally unstable";
+                    break;
+                case 4:
+                    text = "Turns nightmares into miracles";
+                    break;
+                case 5:
+                    text = "Scrambled and burnt";
+                    break;
+                case 6:
+                    text = "It's alive, it's alive";
+                    break;
+                case 7:
+                default:
+                    text = "Collapsing parallel universes";
+                    break;
+            }
+
+            lbName.Text = text;
+        }
+
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(
+@"Welcome to the Chimera Maker plugin.
+
+This plugin allows you to take romhack variants of a game and turn it into a pool of data from which the corruptor can pull from.
+
+For Step 1, you have to provide Chimera Maker with a Base Rom. This rom will be used as a base for detaching edits from romhacks.
+
+For Step 2, you have to provide Chimera Maker with a folder full of pre-patched romhacks.
+
+The files have to have THE SAME EXACT SIZE as the original rom. This is very important as some romhacks may increase the rom size. If a romhack has a different rom size, it is incompatible with this method.
+
+You can use the Check Compatibility button to scan the folder for roms that would not have the correct size. The Remove Incompatible Roms button will remove any rom that doesn't have the right size.
+
+It's time to use the program. Build the stockpile and SAVE IT. Go to the Chimera Maker tab and play with the settings to generate corruptions.
+");
         }
     }
 }
