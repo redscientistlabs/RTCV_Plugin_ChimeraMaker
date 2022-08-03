@@ -302,5 +302,111 @@ You can use the Check Compatibility button to scan the folder for roms that woul
 It's time to use the program. Build the stockpile and SAVE IT. Go to the Chimera Maker tab and play with the settings to generate corruptions.
 ");
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nmAddressInterval_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage4_Click(object sender, EventArgs e)
+        {
+            lbMemoryDomains.Items.Clear();
+            if (MemoryDomains.MemoryInterfaces != null)
+            {
+                lbMemoryDomains.Items.AddRange(MemoryDomains.MemoryInterfaces?.Keys.ToArray());
+            }
+
+            if (MemoryDomains.VmdPool.Count > 0)
+            {
+                lbMemoryDomains.Items.AddRange(MemoryDomains.VmdPool.Values.Select(it => it.ToString()).ToArray());
+            }
+
+            nmAddressInterval.Value = 16;
+
+            lbStates.Items.Clear();
+            foreach (var state in S.GET<SavestateManagerForm>().savestateList.ControlList)
+            {
+                if (state.ssk == null)
+                {
+                    continue;
+                }
+                lbStates.Items.Add(state.Index.ToString());
+            }
+        }
+
+        private (List<BlastLayer>, List<StashKey>) GenerateStateTemplates()
+        {
+            string[] SELECTED_DOMAINS = lbMemoryDomains.SelectedItems.Cast<string>().ToArray();
+            string[] SELECTED_STATES = lbStates.SelectedItems.Cast<string>().ToArray();
+            List<BlastLayer> bls = new List<BlastLayer>();
+            List<StashKey> stashKeys = new List<StashKey>();
+            foreach (var state_index in SELECTED_STATES)
+            {
+                int toInt = int.Parse(state_index);
+                var state = S.GET<SavestateManagerForm>().savestateList.ControlList[toInt];
+                stashKeys.Add(state.sk);
+            }
+            bls = LocalNetCoreRouter.QueryRoute<List<BlastLayer>>(Ep.EMU_SIDE, Commands.GET_TEMPLATES, (object)Tuple.Create(SELECTED_DOMAINS, stashKeys, ((int)nmAddressInterval.Value)));
+            return (bls, stashKeys);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            StashKey key = new StashKey();
+            int index = int.Parse(lbStates.SelectedItems.Cast<string>().ToArray()[RtcCore.RND.Next(lbStates.SelectedItems.Count)]);
+            var bls = GenerateStateTemplates();
+            var state = S.GET<SavestateManagerForm>().savestateList.ControlList[index];
+            List<BlastUnit> blastUnits = new List<BlastUnit>();
+            for (int i = 0; i < ((int)nmBlastCount.Value); i++)
+            {
+                var bl = bls.Item1[RND.Next(bls.Item1.Count)];
+                var blastUnit = bl.Layer[RND.Next(bl.Layer.Count)];
+                blastUnits.Add(blastUnit);
+            }
+            key = (StashKey)bls.Item2[RND.Next(bls.Item2.Count)].Clone();
+            key.BlastLayer = new BlastLayer(blastUnits);
+
+            StockpileManagerUISide.StashHistory.Add(key);
+
+            S.GET<StashHistoryForm>().DontLoadSelectedStash = true;
+            S.GET<StashHistoryForm>().RefreshStashHistorySelectLast();
+            S.GET<StashHistoryForm>().DontLoadSelectedStash = true;
+
+            //execute chimera here
+            StockpileManagerUISide.ApplyStashkey(key);
+        }
+
+        private void btnSendFrankenstateTemplates_Click(object sender, EventArgs e)
+        {
+            var templates = GenerateStateTemplates();
+            for (int i = 0; i < templates.Item2.Count; i++)
+            {
+                var bl = templates.Item1[i];
+                StashKey sk = (StashKey)templates.Item2[i].Clone();
+                sk.BlastLayer = bl;
+
+                //push to stash
+                StockpileManagerUISide.StashHistory.Add(sk);
+                S.GET<StashHistoryForm>().DontLoadSelectedStash = true;
+                S.GET<StashHistoryForm>().RefreshStashHistorySelectLast();
+                S.GET<StashHistoryForm>().DontLoadSelectedStash = true;
+                S.GET<StockpileManagerForm>().dgvStockpile.ClearSelection();
+                S.GET<StashHistoryForm>().DontLoadSelectedStash = false;
+
+
+                //push to stockpile
+                S.GET<StashHistoryForm>().AddStashToStockpile(false);
+            }
+        }
     }
 }

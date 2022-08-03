@@ -32,24 +32,7 @@ namespace CHIMERA_MAKER.UI
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PluginForm));
             this.logoPanel = new System.Windows.Forms.Panel();
             this.lbName = new System.Windows.Forms.Label();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.btnBuildStockpile = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.btnRemoveIncompatibleRoms = new System.Windows.Forms.Button();
-            this.btnCheckCompatibility = new System.Windows.Forms.Button();
-            this.btnBrowseDerivedRomFolder = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.tbDerivedRomFolder = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnPrepareGhBaseRom = new System.Windows.Forms.Button();
-            this.btnBrowseRom = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tbBaseRom = new System.Windows.Forms.TextBox();
+            this.btnHelp = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.cbSendToStash = new System.Windows.Forms.CheckBox();
             this.cbStockpilePlayer = new System.Windows.Forms.CheckBox();
@@ -64,13 +47,47 @@ namespace CHIMERA_MAKER.UI
             this.rbFullMerge = new System.Windows.Forms.RadioButton();
             this.nmBlastlayerAmount = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
-            this.btnHelp = new System.Windows.Forms.Button();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btnBuildStockpile = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnRemoveIncompatibleRoms = new System.Windows.Forms.Button();
+            this.btnCheckCompatibility = new System.Windows.Forms.Button();
+            this.btnBrowseDerivedRomFolder = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tbDerivedRomFolder = new System.Windows.Forms.TextBox();
+            this.tbBaseRom = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnPrepareGhBaseRom = new System.Windows.Forms.Button();
+            this.btnBrowseRom = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.nmBlastCount = new System.Windows.Forms.NumericUpDown();
+            this.nmAddressInterval = new System.Windows.Forms.NumericUpDown();
+            this.lbStates = new RTCV.UI.Components.Controls.ListBoxExtended();
+            this.lbMemoryDomains = new RTCV.UI.Components.Controls.ListBoxExtended();
+            this.btnSendFrankenstateTemplates = new System.Windows.Forms.Button();
+            this.btnGenerateFrankenState = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
             this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbSprinkleAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmBlastlayerAmount)).BeginInit();
+            this.tabPage1.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nmBlastCount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmAddressInterval)).BeginInit();
             this.SuspendLayout();
             // 
             // logoPanel
@@ -94,202 +111,15 @@ namespace CHIMERA_MAKER.UI
             this.lbName.Text = "_";
             this.lbName.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // tabControl1
+            // btnHelp
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(12, 147);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(578, 375);
-            this.tabControl1.TabIndex = 2;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.BackColor = System.Drawing.Color.Black;
-            this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.label9);
-            this.tabPage1.Controls.Add(this.label8);
-            this.tabPage1.Controls.Add(this.btnBuildStockpile);
-            this.tabPage1.Controls.Add(this.label7);
-            this.tabPage1.Controls.Add(this.btnRemoveIncompatibleRoms);
-            this.tabPage1.Controls.Add(this.btnCheckCompatibility);
-            this.tabPage1.Controls.Add(this.btnBrowseDerivedRomFolder);
-            this.tabPage1.Controls.Add(this.label6);
-            this.tabPage1.Controls.Add(this.tbDerivedRomFolder);
-            this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.btnPrepareGhBaseRom);
-            this.tabPage1.Controls.Add(this.btnBrowseRom);
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.tbBaseRom);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(570, 349);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Stockpile Building";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(13, 20);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(539, 16);
-            this.label4.TabIndex = 16;
-            this.label4.Text = "If you already have a pre-built stockpile, you can skip straight to the Chimera G" +
-    "enerator tab";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(13, 322);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(329, 13);
-            this.label9.TabIndex = 15;
-            this.label9.Text = "Go to the Chimera Generator tab to start making Chimera Corruptions";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(13, 305);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(493, 13);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "When all of that is done, you can save your stockpile so that you don\'t have to d" +
-    "o generation next time.";
-            // 
-            // btnBuildStockpile
-            // 
-            this.btnBuildStockpile.Location = new System.Drawing.Point(16, 261);
-            this.btnBuildStockpile.Name = "btnBuildStockpile";
-            this.btnBuildStockpile.Size = new System.Drawing.Size(185, 23);
-            this.btnBuildStockpile.TabIndex = 13;
-            this.btnBuildStockpile.Text = "Build Stockpile";
-            this.btnBuildStockpile.UseVisualStyleBackColor = true;
-            this.btnBuildStockpile.Click += new System.EventHandler(this.btnBuildStockpile_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(13, 243);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(388, 13);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "Step 3: Build stockpile with Derived roms (extract diff as blastlayer)";
-            // 
-            // btnRemoveIncompatibleRoms
-            // 
-            this.btnRemoveIncompatibleRoms.Enabled = false;
-            this.btnRemoveIncompatibleRoms.Location = new System.Drawing.Point(231, 199);
-            this.btnRemoveIncompatibleRoms.Name = "btnRemoveIncompatibleRoms";
-            this.btnRemoveIncompatibleRoms.Size = new System.Drawing.Size(185, 23);
-            this.btnRemoveIncompatibleRoms.TabIndex = 11;
-            this.btnRemoveIncompatibleRoms.Text = "Remove Incompatible roms";
-            this.btnRemoveIncompatibleRoms.UseVisualStyleBackColor = true;
-            this.btnRemoveIncompatibleRoms.Click += new System.EventHandler(this.btnRemoveIncompatibleRoms_Click);
-            // 
-            // btnCheckCompatibility
-            // 
-            this.btnCheckCompatibility.Location = new System.Drawing.Point(16, 199);
-            this.btnCheckCompatibility.Name = "btnCheckCompatibility";
-            this.btnCheckCompatibility.Size = new System.Drawing.Size(185, 23);
-            this.btnCheckCompatibility.TabIndex = 10;
-            this.btnCheckCompatibility.Text = "Check Compatiblity";
-            this.btnCheckCompatibility.UseVisualStyleBackColor = true;
-            this.btnCheckCompatibility.Click += new System.EventHandler(this.btnCheckCompatibility_Click);
-            // 
-            // btnBrowseDerivedRomFolder
-            // 
-            this.btnBrowseDerivedRomFolder.Location = new System.Drawing.Point(427, 170);
-            this.btnBrowseDerivedRomFolder.Name = "btnBrowseDerivedRomFolder";
-            this.btnBrowseDerivedRomFolder.Size = new System.Drawing.Size(75, 23);
-            this.btnBrowseDerivedRomFolder.TabIndex = 9;
-            this.btnBrowseDerivedRomFolder.Text = "Browse";
-            this.btnBrowseDerivedRomFolder.UseVisualStyleBackColor = true;
-            this.btnBrowseDerivedRomFolder.Click += new System.EventHandler(this.btnBrowseDerivedRomFolder_Click);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(13, 176);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(101, 13);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Derived Rom Folder";
-            // 
-            // tbDerivedRomFolder
-            // 
-            this.tbDerivedRomFolder.Location = new System.Drawing.Point(120, 173);
-            this.tbDerivedRomFolder.Name = "tbDerivedRomFolder";
-            this.tbDerivedRomFolder.Size = new System.Drawing.Size(303, 20);
-            this.tbDerivedRomFolder.TabIndex = 7;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(13, 153);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(403, 13);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Step 2: Select folder containing Derived roms and check compatibility";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(13, 60);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(417, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Step 1: Select base rom and prepare the Glitch Harvester for processing";
-            // 
-            // btnPrepareGhBaseRom
-            // 
-            this.btnPrepareGhBaseRom.Location = new System.Drawing.Point(16, 106);
-            this.btnPrepareGhBaseRom.Name = "btnPrepareGhBaseRom";
-            this.btnPrepareGhBaseRom.Size = new System.Drawing.Size(185, 23);
-            this.btnPrepareGhBaseRom.TabIndex = 3;
-            this.btnPrepareGhBaseRom.Text = "Prepare GH Frame 0 State";
-            this.btnPrepareGhBaseRom.UseVisualStyleBackColor = true;
-            this.btnPrepareGhBaseRom.Click += new System.EventHandler(this.btnPrepareGhBaseRom_Click);
-            // 
-            // btnBrowseRom
-            // 
-            this.btnBrowseRom.Location = new System.Drawing.Point(382, 78);
-            this.btnBrowseRom.Name = "btnBrowseRom";
-            this.btnBrowseRom.Size = new System.Drawing.Size(75, 23);
-            this.btnBrowseRom.TabIndex = 2;
-            this.btnBrowseRom.Text = "Browse";
-            this.btnBrowseRom.UseVisualStyleBackColor = true;
-            this.btnBrowseRom.Click += new System.EventHandler(this.btnBrowseRom_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(13, 83);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Base Rom";
-            // 
-            // tbBaseRom
-            // 
-            this.tbBaseRom.Location = new System.Drawing.Point(75, 80);
-            this.tbBaseRom.Name = "tbBaseRom";
-            this.tbBaseRom.Size = new System.Drawing.Size(303, 20);
-            this.tbBaseRom.TabIndex = 0;
+            this.btnHelp.Location = new System.Drawing.Point(10, 115);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Size = new System.Drawing.Size(95, 23);
+            this.btnHelp.TabIndex = 3;
+            this.btnHelp.Text = "Click for help";
+            this.btnHelp.UseVisualStyleBackColor = true;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
             // tabPage2
             // 
@@ -456,15 +286,407 @@ namespace CHIMERA_MAKER.UI
             this.label10.TabIndex = 2;
             this.label10.Text = "Amount of blastlayers to merge:";
             // 
-            // btnHelp
+            // tabPage1
             // 
-            this.btnHelp.Location = new System.Drawing.Point(10, 115);
-            this.btnHelp.Name = "btnHelp";
-            this.btnHelp.Size = new System.Drawing.Size(95, 23);
-            this.btnHelp.TabIndex = 3;
-            this.btnHelp.Text = "Click for help";
-            this.btnHelp.UseVisualStyleBackColor = true;
-            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
+            this.tabPage1.BackColor = System.Drawing.Color.Black;
+            this.tabPage1.Controls.Add(this.label4);
+            this.tabPage1.Controls.Add(this.label9);
+            this.tabPage1.Controls.Add(this.label8);
+            this.tabPage1.Controls.Add(this.btnBuildStockpile);
+            this.tabPage1.Controls.Add(this.label7);
+            this.tabPage1.Controls.Add(this.btnRemoveIncompatibleRoms);
+            this.tabPage1.Controls.Add(this.btnCheckCompatibility);
+            this.tabPage1.Controls.Add(this.btnBrowseDerivedRomFolder);
+            this.tabPage1.Controls.Add(this.label6);
+            this.tabPage1.Controls.Add(this.tbDerivedRomFolder);
+            this.tabPage1.Controls.Add(this.tbBaseRom);
+            this.tabPage1.Controls.Add(this.label5);
+            this.tabPage1.Controls.Add(this.label3);
+            this.tabPage1.Controls.Add(this.btnPrepareGhBaseRom);
+            this.tabPage1.Controls.Add(this.btnBrowseRom);
+            this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(570, 349);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Stockpile Building";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(13, 20);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(539, 16);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "If you already have a pre-built stockpile, you can skip straight to the Chimera G" +
+    "enerator tab";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(13, 322);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(329, 13);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "Go to the Chimera Generator tab to start making Chimera Corruptions";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(13, 305);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(493, 13);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "When all of that is done, you can save your stockpile so that you don\'t have to d" +
+    "o generation next time.";
+            // 
+            // btnBuildStockpile
+            // 
+            this.btnBuildStockpile.Location = new System.Drawing.Point(16, 261);
+            this.btnBuildStockpile.Name = "btnBuildStockpile";
+            this.btnBuildStockpile.Size = new System.Drawing.Size(185, 23);
+            this.btnBuildStockpile.TabIndex = 13;
+            this.btnBuildStockpile.Text = "Build Stockpile";
+            this.btnBuildStockpile.UseVisualStyleBackColor = true;
+            this.btnBuildStockpile.Click += new System.EventHandler(this.btnBuildStockpile_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(13, 243);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(388, 13);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Step 3: Build stockpile with Derived roms (extract diff as blastlayer)";
+            // 
+            // btnRemoveIncompatibleRoms
+            // 
+            this.btnRemoveIncompatibleRoms.Enabled = false;
+            this.btnRemoveIncompatibleRoms.Location = new System.Drawing.Point(231, 199);
+            this.btnRemoveIncompatibleRoms.Name = "btnRemoveIncompatibleRoms";
+            this.btnRemoveIncompatibleRoms.Size = new System.Drawing.Size(185, 23);
+            this.btnRemoveIncompatibleRoms.TabIndex = 11;
+            this.btnRemoveIncompatibleRoms.Text = "Remove Incompatible roms";
+            this.btnRemoveIncompatibleRoms.UseVisualStyleBackColor = true;
+            this.btnRemoveIncompatibleRoms.Click += new System.EventHandler(this.btnRemoveIncompatibleRoms_Click);
+            // 
+            // btnCheckCompatibility
+            // 
+            this.btnCheckCompatibility.Location = new System.Drawing.Point(16, 199);
+            this.btnCheckCompatibility.Name = "btnCheckCompatibility";
+            this.btnCheckCompatibility.Size = new System.Drawing.Size(185, 23);
+            this.btnCheckCompatibility.TabIndex = 10;
+            this.btnCheckCompatibility.Text = "Check Compatiblity";
+            this.btnCheckCompatibility.UseVisualStyleBackColor = true;
+            this.btnCheckCompatibility.Click += new System.EventHandler(this.btnCheckCompatibility_Click);
+            // 
+            // btnBrowseDerivedRomFolder
+            // 
+            this.btnBrowseDerivedRomFolder.Location = new System.Drawing.Point(427, 170);
+            this.btnBrowseDerivedRomFolder.Name = "btnBrowseDerivedRomFolder";
+            this.btnBrowseDerivedRomFolder.Size = new System.Drawing.Size(75, 23);
+            this.btnBrowseDerivedRomFolder.TabIndex = 9;
+            this.btnBrowseDerivedRomFolder.Text = "Browse";
+            this.btnBrowseDerivedRomFolder.UseVisualStyleBackColor = true;
+            this.btnBrowseDerivedRomFolder.Click += new System.EventHandler(this.btnBrowseDerivedRomFolder_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(13, 176);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(101, 13);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Derived Rom Folder";
+            // 
+            // tbDerivedRomFolder
+            // 
+            this.tbDerivedRomFolder.Location = new System.Drawing.Point(120, 173);
+            this.tbDerivedRomFolder.Name = "tbDerivedRomFolder";
+            this.tbDerivedRomFolder.Size = new System.Drawing.Size(303, 20);
+            this.tbDerivedRomFolder.TabIndex = 7;
+            // 
+            // tbBaseRom
+            // 
+            this.tbBaseRom.Location = new System.Drawing.Point(75, 80);
+            this.tbBaseRom.Name = "tbBaseRom";
+            this.tbBaseRom.Size = new System.Drawing.Size(303, 20);
+            this.tbBaseRom.TabIndex = 0;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(13, 153);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(403, 13);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Step 2: Select folder containing Derived roms and check compatibility";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(13, 60);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(417, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Step 1: Select base rom and prepare the Glitch Harvester for processing";
+            // 
+            // btnPrepareGhBaseRom
+            // 
+            this.btnPrepareGhBaseRom.Location = new System.Drawing.Point(16, 106);
+            this.btnPrepareGhBaseRom.Name = "btnPrepareGhBaseRom";
+            this.btnPrepareGhBaseRom.Size = new System.Drawing.Size(185, 23);
+            this.btnPrepareGhBaseRom.TabIndex = 3;
+            this.btnPrepareGhBaseRom.Text = "Prepare GH Frame 0 State";
+            this.btnPrepareGhBaseRom.UseVisualStyleBackColor = true;
+            this.btnPrepareGhBaseRom.Click += new System.EventHandler(this.btnPrepareGhBaseRom_Click);
+            // 
+            // btnBrowseRom
+            // 
+            this.btnBrowseRom.Location = new System.Drawing.Point(382, 78);
+            this.btnBrowseRom.Name = "btnBrowseRom";
+            this.btnBrowseRom.Size = new System.Drawing.Size(75, 23);
+            this.btnBrowseRom.TabIndex = 2;
+            this.btnBrowseRom.Text = "Browse";
+            this.btnBrowseRom.UseVisualStyleBackColor = true;
+            this.btnBrowseRom.Click += new System.EventHandler(this.btnBrowseRom_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(13, 83);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Base Rom";
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(12, 147);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(578, 375);
+            this.tabControl1.TabIndex = 2;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.BackColor = System.Drawing.Color.Black;
+            this.tabPage4.Controls.Add(this.nmBlastCount);
+            this.tabPage4.Controls.Add(this.nmAddressInterval);
+            this.tabPage4.Controls.Add(this.lbStates);
+            this.tabPage4.Controls.Add(this.lbMemoryDomains);
+            this.tabPage4.Controls.Add(this.btnSendFrankenstateTemplates);
+            this.tabPage4.Controls.Add(this.btnGenerateFrankenState);
+            this.tabPage4.Controls.Add(this.label16);
+            this.tabPage4.Controls.Add(this.label18);
+            this.tabPage4.Controls.Add(this.label1);
+            this.tabPage4.Controls.Add(this.label19);
+            this.tabPage4.Controls.Add(this.label17);
+            this.tabPage4.Controls.Add(this.label21);
+            this.tabPage4.Controls.Add(this.label20);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(570, 349);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Savestate Combiner";
+            this.tabPage4.Click += new System.EventHandler(this.tabPage4_Click);
+            // 
+            // nmBlastCount
+            // 
+            this.nmBlastCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.nmBlastCount.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.nmBlastCount.ForeColor = System.Drawing.Color.White;
+            this.nmBlastCount.Location = new System.Drawing.Point(16, 277);
+            this.nmBlastCount.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nmBlastCount.Name = "nmBlastCount";
+            this.nmBlastCount.Size = new System.Drawing.Size(101, 22);
+            this.nmBlastCount.TabIndex = 130;
+            this.nmBlastCount.Tag = "color:dark1";
+            this.nmBlastCount.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nmBlastCount.ValueChanged += new System.EventHandler(this.nmAddressInterval_ValueChanged);
+            // 
+            // nmAddressInterval
+            // 
+            this.nmAddressInterval.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.nmAddressInterval.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.nmAddressInterval.ForeColor = System.Drawing.Color.White;
+            this.nmAddressInterval.Increment = new decimal(new int[] {
+            16,
+            0,
+            0,
+            0});
+            this.nmAddressInterval.Location = new System.Drawing.Point(209, 101);
+            this.nmAddressInterval.Maximum = new decimal(new int[] {
+            256,
+            0,
+            0,
+            0});
+            this.nmAddressInterval.Name = "nmAddressInterval";
+            this.nmAddressInterval.Size = new System.Drawing.Size(37, 22);
+            this.nmAddressInterval.TabIndex = 130;
+            this.nmAddressInterval.Tag = "color:dark1";
+            this.nmAddressInterval.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nmAddressInterval.ValueChanged += new System.EventHandler(this.nmAddressInterval_ValueChanged);
+            // 
+            // lbStates
+            // 
+            this.lbStates.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbStates.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(16)))), ((int)(((byte)(16)))));
+            this.lbStates.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lbStates.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.lbStates.ForeColor = System.Drawing.Color.White;
+            this.lbStates.FormattingEnabled = true;
+            this.lbStates.IntegralHeight = false;
+            this.lbStates.Location = new System.Drawing.Point(349, 101);
+            this.lbStates.Margin = new System.Windows.Forms.Padding(5);
+            this.lbStates.Name = "lbStates";
+            this.lbStates.ScrollAlwaysVisible = true;
+            this.lbStates.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.lbStates.Size = new System.Drawing.Size(185, 101);
+            this.lbStates.TabIndex = 129;
+            this.lbStates.Tag = "color:dark3";
+            // 
+            // lbMemoryDomains
+            // 
+            this.lbMemoryDomains.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbMemoryDomains.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(16)))), ((int)(((byte)(16)))));
+            this.lbMemoryDomains.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lbMemoryDomains.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.lbMemoryDomains.ForeColor = System.Drawing.Color.White;
+            this.lbMemoryDomains.FormattingEnabled = true;
+            this.lbMemoryDomains.IntegralHeight = false;
+            this.lbMemoryDomains.Location = new System.Drawing.Point(16, 101);
+            this.lbMemoryDomains.Margin = new System.Windows.Forms.Padding(5);
+            this.lbMemoryDomains.Name = "lbMemoryDomains";
+            this.lbMemoryDomains.ScrollAlwaysVisible = true;
+            this.lbMemoryDomains.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.lbMemoryDomains.Size = new System.Drawing.Size(185, 101);
+            this.lbMemoryDomains.TabIndex = 129;
+            this.lbMemoryDomains.Tag = "color:dark3";
+            // 
+            // btnSendFrankenstateTemplates
+            // 
+            this.btnSendFrankenstateTemplates.Location = new System.Drawing.Point(316, 276);
+            this.btnSendFrankenstateTemplates.Name = "btnSendFrankenstateTemplates";
+            this.btnSendFrankenstateTemplates.Size = new System.Drawing.Size(185, 23);
+            this.btnSendFrankenstateTemplates.TabIndex = 13;
+            this.btnSendFrankenstateTemplates.Text = "Send to Stockpile";
+            this.btnSendFrankenstateTemplates.UseVisualStyleBackColor = true;
+            this.btnSendFrankenstateTemplates.Click += new System.EventHandler(this.btnSendFrankenstateTemplates_Click);
+            // 
+            // btnGenerateFrankenState
+            // 
+            this.btnGenerateFrankenState.Location = new System.Drawing.Point(123, 277);
+            this.btnGenerateFrankenState.Name = "btnGenerateFrankenState";
+            this.btnGenerateFrankenState.Size = new System.Drawing.Size(185, 23);
+            this.btnGenerateFrankenState.TabIndex = 13;
+            this.btnGenerateFrankenState.Text = "Generate Frankenstate";
+            this.btnGenerateFrankenState.UseVisualStyleBackColor = true;
+            this.btnGenerateFrankenState.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.White;
+            this.label16.Location = new System.Drawing.Point(13, 243);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(422, 13);
+            this.label16.TabIndex = 12;
+            this.label16.Text = "Step 3: Generate a frankenstate, or send state templates to the stockpile";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.label18.ForeColor = System.Drawing.Color.White;
+            this.label18.Location = new System.Drawing.Point(346, 60);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(206, 13);
+            this.label18.TabIndex = 4;
+            this.label18.Text = "Step 2: Select savestates to merge";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(13, 261);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Blast Count";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.label19.ForeColor = System.Drawing.Color.White;
+            this.label19.Location = new System.Drawing.Point(13, 60);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(295, 13);
+            this.label19.TabIndex = 4;
+            this.label19.Text = "Step 1: Select domains and select address interval\r\n";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.ForeColor = System.Drawing.Color.White;
+            this.label17.Location = new System.Drawing.Point(206, 85);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(42, 13);
+            this.label17.TabIndex = 1;
+            this.label17.Text = "Interval";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.ForeColor = System.Drawing.Color.White;
+            this.label21.Location = new System.Drawing.Point(346, 85);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(37, 13);
+            this.label21.TabIndex = 1;
+            this.label21.Text = "States";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.ForeColor = System.Drawing.Color.White;
+            this.label20.Location = new System.Drawing.Point(13, 83);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(88, 13);
+            this.label20.TabIndex = 1;
+            this.label20.Text = "Memory Domains";
             // 
             // PluginForm
             // 
@@ -483,15 +705,19 @@ namespace CHIMERA_MAKER.UI
             this.Tag = "color:dark1";
             this.Text = "Plugin Form";
             this.Load += new System.EventHandler(this.PluginForm_Load);
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbSprinkleAmount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmBlastlayerAmount)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nmBlastCount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmAddressInterval)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -499,14 +725,23 @@ namespace CHIMERA_MAKER.UI
 
         private System.Windows.Forms.Panel logoPanel;
         private System.Windows.Forms.Label lbName;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TextBox tbBaseRom;
+        private System.Windows.Forms.Button btnHelp;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnPrepareGhBaseRom;
-        private System.Windows.Forms.Button btnBrowseRom;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox cbSendToStash;
+        private System.Windows.Forms.CheckBox cbStockpilePlayer;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button btnExport;
+        private System.Windows.Forms.Button btnGenerate;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TrackBar tbSprinkleAmount;
+        private System.Windows.Forms.RadioButton rbSprinkleMerge;
+        private System.Windows.Forms.RadioButton rbFullMerge;
+        private System.Windows.Forms.NumericUpDown nmBlastlayerAmount;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnBuildStockpile;
@@ -516,21 +751,26 @@ namespace CHIMERA_MAKER.UI
         private System.Windows.Forms.Button btnBrowseDerivedRomFolder;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbDerivedRomFolder;
+        private System.Windows.Forms.TextBox tbBaseRom;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TrackBar tbSprinkleAmount;
-        private System.Windows.Forms.RadioButton rbSprinkleMerge;
-        private System.Windows.Forms.RadioButton rbFullMerge;
-        private System.Windows.Forms.NumericUpDown nmBlastlayerAmount;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button btnExport;
-        private System.Windows.Forms.Button btnGenerate;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.CheckBox cbSendToStash;
-        private System.Windows.Forms.CheckBox cbStockpilePlayer;
-        private System.Windows.Forms.Button btnHelp;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnPrepareGhBaseRom;
+        private System.Windows.Forms.Button btnBrowseRom;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.Button btnGenerateFrankenState;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        public RTCV.UI.Components.Controls.ListBoxExtended lbMemoryDomains;
+        public System.Windows.Forms.NumericUpDown nmAddressInterval;
+        private System.Windows.Forms.Label label17;
+        public RTCV.UI.Components.Controls.ListBoxExtended lbStates;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label21;
+        public System.Windows.Forms.NumericUpDown nmBlastCount;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnSendFrankenstateTemplates;
     }
 }
