@@ -27,6 +27,8 @@ namespace CHIMERA_MAKER.UI
 
         Logger logger = NLog.LogManager.GetCurrentClassLogger();
 
+        private Dictionary<string, StashKey> savestates = new Dictionary<string, StashKey>();
+
         public PluginForm(CHIMERA_MAKER _plugin)
         {
             plugin = _plugin;
@@ -320,28 +322,6 @@ It's time to use the program. Build the stockpile and SAVE IT. Go to the Chimera
 
         private void tabPage4_Click(object sender, EventArgs e)
         {
-            lbMemoryDomains.Items.Clear();
-            if (MemoryDomains.MemoryInterfaces != null)
-            {
-                lbMemoryDomains.Items.AddRange(MemoryDomains.MemoryInterfaces?.Keys.ToArray());
-            }
-
-            if (MemoryDomains.VmdPool.Count > 0)
-            {
-                lbMemoryDomains.Items.AddRange(MemoryDomains.VmdPool.Values.Select(it => it.ToString()).ToArray());
-            }
-
-            nmAddressInterval.Value = 16;
-
-            lbStates.Items.Clear();
-            foreach (var state in S.GET<SavestateManagerForm>().savestateList.ControlList)
-            {
-                if (state.ssk == null)
-                {
-                    continue;
-                }
-                lbStates.Items.Add(state.Index.ToString());
-            }
         }
 
         private (List<BlastLayer>, List<StashKey>) GenerateStateTemplates()
@@ -350,11 +330,9 @@ It's time to use the program. Build the stockpile and SAVE IT. Go to the Chimera
             string[] SELECTED_STATES = lbStates.SelectedItems.Cast<string>().ToArray();
             List<BlastLayer> bls = new List<BlastLayer>();
             List<StashKey> stashKeys = new List<StashKey>();
-            foreach (var state_index in SELECTED_STATES)
+            foreach (var state_name in SELECTED_STATES)
             {
-                int toInt = int.Parse(state_index);
-                var state = S.GET<SavestateManagerForm>().savestateList.ControlList[toInt];
-                stashKeys.Add(state.sk);
+                stashKeys.Add(savestates[state_name]);
             }
             bls = LocalNetCoreRouter.QueryRoute<List<BlastLayer>>(Ep.EMU_SIDE, Commands.GET_TEMPLATES, (object)Tuple.Create(SELECTED_DOMAINS, stashKeys, ((int)nmAddressInterval.Value)));
             return (bls, stashKeys);
@@ -363,9 +341,8 @@ It's time to use the program. Build the stockpile and SAVE IT. Go to the Chimera
         private void button1_Click(object sender, EventArgs e)
         {
             StashKey key = new StashKey();
-            int index = int.Parse(lbStates.SelectedItems.Cast<string>().ToArray()[RtcCore.RND.Next(lbStates.SelectedItems.Count)]);
             var bls = GenerateStateTemplates();
-            var state = S.GET<SavestateManagerForm>().savestateList.ControlList[index];
+            var state = savestates[lbStates.SelectedItems.Cast<string>().ToArray()[RtcCore.RND.Next(lbStates.SelectedItems.Count)]];
             List<BlastUnit> blastUnits = new List<BlastUnit>();
             for (int i = 0; i < ((int)nmBlastCount.Value); i++)
             {
@@ -406,6 +383,68 @@ It's time to use the program. Build the stockpile and SAVE IT. Go to the Chimera
 
                 //push to stockpile
                 S.GET<StashHistoryForm>().AddStashToStockpile(false);
+            }
+        }
+
+        private void HandleRefreshDomainsClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSelectAllStates_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < lbStates.Items.Count; i++)
+            {
+                lbStates.SetSelected(i, true);
+            }
+        }
+
+        private void btnUnselectAllStates_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < lbStates.Items.Count; i++)
+            {
+                lbStates.SetSelected(i, false);
+            }
+        }
+
+        private void btnSelectRandom_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < lbStates.Items.Count; i++)
+            {
+                lbStates.SetSelected(i, false);
+            }
+            double percentToSelect = trkbRandomStatePerc.Value / 100d;
+            int amountToSelect = (int)((double)lbStates.Items.Count * percentToSelect);
+            for (int i = 0; i < amountToSelect; i++)
+            {
+                lbStates.SetSelected(RND.Next(lbStates.Items.Count), true);
+            }
+        }
+
+        private void btnReload_Click(object sender, EventArgs e)
+        {
+            lbMemoryDomains.Items.Clear();
+            if (MemoryDomains.MemoryInterfaces != null)
+            {
+                lbMemoryDomains.Items.AddRange(MemoryDomains.MemoryInterfaces?.Keys.ToArray());
+            }
+
+            if (MemoryDomains.VmdPool.Count > 0)
+            {
+                lbMemoryDomains.Items.AddRange(MemoryDomains.VmdPool.Values.Select(it => it.ToString()).ToArray());
+            }
+
+            nmAddressInterval.Value = 16;
+
+            lbStates.Items.Clear();
+            savestates.Clear();
+            int stateCount = 0;
+            foreach (SaveStateKey state in ((BindingSource)S.GET<SavestateManagerForm>().savestateList.DataSource).List)
+            {
+                string text = !string.IsNullOrWhiteSpace(state.Text) ? $"{stateCount}_{state.Text}" : stateCount.ToString();
+                lbStates.Items.Add(text);
+                savestates.Add(text, state.StashKey);
+                stateCount++;
             }
         }
     }
