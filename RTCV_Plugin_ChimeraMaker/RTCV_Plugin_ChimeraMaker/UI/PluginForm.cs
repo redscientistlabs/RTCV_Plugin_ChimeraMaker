@@ -18,6 +18,7 @@ namespace CHIMERA_MAKER.UI
     using System.IO;
     using System.Text.RegularExpressions;
     using RTCV.UI.Modular;
+    using System.Windows.Shapes;
 
     public partial class PluginForm : ComponentForm, IColorize
     {
@@ -88,7 +89,8 @@ namespace CHIMERA_MAKER.UI
         {
             if(String.IsNullOrEmpty(tbBaseRom.Text) || !File.Exists(tbBaseRom.Text))
             {
-                MessageBox.Show("Cannot prepare Glitch Harvester, invalid/empty rom path ?");
+                MessageBox.Show("Cannot prepare Glitch Harvester State, Base Rom path is invalid or empty.");
+                return; // if no base rom present, return without continuing 
             }
 
             //Load rom and make GH savestate
@@ -104,6 +106,24 @@ namespace CHIMERA_MAKER.UI
 
         private void btnCheckCompatibility_Click(object sender, EventArgs e)
         {
+            if ((String.IsNullOrEmpty(tbBaseRom.Text) || !File.Exists(tbBaseRom.Text)) && (String.IsNullOrEmpty(tbBaseRom.Text) || !Directory.EnumerateFileSystemEntries(tbDerivedRomFolder.Text).Any()))
+            {
+                MessageBox.Show("Cannot check compatibility, Base Rom path and Derived Rom Folder are invalid or empty .");
+                return; // if neither present, return without continuing 
+            }
+
+            if (String.IsNullOrEmpty(tbBaseRom.Text) || !File.Exists(tbBaseRom.Text))
+            {
+                MessageBox.Show("Cannot check compatibility, Base Rom path is invalid or empty.");
+                return; // if no base rom present, return without continuing 
+            }
+
+            if (String.IsNullOrEmpty(tbDerivedRomFolder.Text) || !Directory.EnumerateFileSystemEntries(tbDerivedRomFolder.Text).Any())
+            {
+                MessageBox.Show("Cannot check compatibility, Derived Rom Folder is invalid or empty.");
+                return; // if no Derived Rom Folder present, return without continuing 
+            }
+
             FileInfo baseRomFi = new FileInfo(tbBaseRom.Text);
             var len = baseRomFi.Length;
 
@@ -126,7 +146,7 @@ namespace CHIMERA_MAKER.UI
             }
             else
             {
-                MessageBox.Show("All derived roms are the same size as the base rom");
+                MessageBox.Show("Dervived Roms are the same size as the Base Rom, compatibility is good.");
             }
 
             btnRemoveIncompatibleRoms.Enabled = (IncompatibleRoms.Count > 0);
@@ -147,7 +167,34 @@ namespace CHIMERA_MAKER.UI
 
         private void btnBuildStockpile_Click(object sender, EventArgs e)
         {
-            MessageBox.Show($"Depending on the amount of derived roms you are about to ingest, this may take a long time. \n\n THE WINDOW WILL NOT FREEZE, \nthis is going to run inside the bizhawk process.\n\n Another message box will pop once the stockpile generation is done.");
+            if ((String.IsNullOrEmpty(tbBaseRom.Text) || !File.Exists(tbBaseRom.Text)) && (String.IsNullOrEmpty(tbBaseRom.Text) || !Directory.EnumerateFileSystemEntries(tbDerivedRomFolder.Text).Any()))
+            {
+                MessageBox.Show("Cannot build Stockpile, Base Rom path and Derived Rom Folder are invalid or empty .");
+                return; // if neither present, return without continuing 
+            }
+
+            if (String.IsNullOrEmpty(tbBaseRom.Text) || !File.Exists(tbBaseRom.Text))
+            {
+                MessageBox.Show("Cannot build Stockpile, Base Rom path is invalid or empty.");
+                return; // if no base rom present, return without continuing 
+            }
+
+            if (String.IsNullOrEmpty(tbDerivedRomFolder.Text) || !Directory.EnumerateFileSystemEntries(tbDerivedRomFolder.Text).Any())
+            {
+                MessageBox.Show("Cannot build Stockpile, Derived Rom Folder is invalid or empty.");
+                return; // if no Derived Rom Folder present, return without continuing 
+            }
+
+            if (BaseStashkey == null)
+            {
+                MessageBox.Show("Could not build Stockpile. Did you prepare a Frame 0 state with the button?");
+                return;
+            }
+
+            MessageBox.Show($"Depending on the amount of derived roms you are about to ingest, this may take a long time. " +
+                $"\n\n THE WINDOW WILL NOT FREEZE," +
+                $" \nthis is going to run inside the bizhawk process." +
+                $"\n\n Another message box will pop once the stockpile generation is done.");
 
             FileInfo baseRomFi = new FileInfo(tbBaseRom.Text);
             var derivedRoms = Directory.GetFiles(tbDerivedRomFolder.Text);
@@ -159,16 +206,20 @@ namespace CHIMERA_MAKER.UI
                 var fi = new FileInfo(file);
                 var bl = LocalNetCoreRouter.QueryRoute<BlastLayer>(RTCV.NetCore.Endpoints.CorruptCore, RTCV.NetCore.Commands.Remote.BLGetDiffBlastLayer, file);
 
-
                 var sk = (StashKey)BaseStashkey.Clone();
 
                 if (sk == null)
                 {
-                    MessageBox.Show("Could not send to Stockpile manager. Did you forget to create a Frame 0 state with the button?");
+                    MessageBox.Show("Could not build Stockpile. Did you prepare a Frame 0 state with the button?");
                     return;
                 }
 
                 sk.BlastLayer = bl;
+                if (bl == null)
+                {
+                    return;
+                }
+                   
 
                 var shortname = fi.Name.Replace(fi.Extension, "");
                 sk.Alias = shortname;
@@ -189,7 +240,7 @@ namespace CHIMERA_MAKER.UI
 
 
 
-            MessageBox.Show($"Stockpile generation completed");
+            MessageBox.Show($"Stockpile generation completed.");
         }
         StashKey prevChimera = null;
         private void btnGenerate_Click(object sender, EventArgs e)
@@ -209,6 +260,18 @@ namespace CHIMERA_MAKER.UI
 
             var allStashkeys = alldgvRows.Select(it => (it.Cells["Item"].Value as StashKey)).ToList();
 
+            if (allStashkeys == null || allStashkeys.Count == 0)
+            {
+                MessageBox.Show("Could not generate, Stockpile is empty.");
+                return;
+            }
+            
+           //if (!allStashkeys.Any())
+           //{
+           //    MessageBox.Show("Cannot generate, StockPile is empty.");
+           //    return; // if neither present, return without continuing 
+           //}
+           //
             var Chimera = (StashKey)allStashkeys.First().Clone();
 
             Chimera.BlastLayer.Layer.Clear();
