@@ -104,7 +104,6 @@ namespace CHIMERA_MAKER.UI
             this.lbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbName.ForeColor = System.Drawing.Color.White;
             this.lbName.Location = new System.Drawing.Point(370, 177);
-            this.lbName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbName.Name = "lbName";
             this.lbName.Size = new System.Drawing.Size(514, 45);
             this.lbName.TabIndex = 1;
@@ -118,7 +117,6 @@ namespace CHIMERA_MAKER.UI
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Font = new System.Drawing.Font("Segoe UI", 7.8F);
             this.tabControl1.Location = new System.Drawing.Point(18, 226);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(867, 577);
@@ -144,7 +142,6 @@ namespace CHIMERA_MAKER.UI
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.tbBaseRom);
             this.tabPage1.Location = new System.Drawing.Point(4, 30);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage1.Size = new System.Drawing.Size(859, 543);
@@ -158,7 +155,6 @@ namespace CHIMERA_MAKER.UI
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Italic);
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(20, 31);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(810, 28);
             this.label4.TabIndex = 16;
@@ -170,7 +166,6 @@ namespace CHIMERA_MAKER.UI
             this.label9.AutoSize = true;
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(20, 495);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(496, 21);
             this.label9.TabIndex = 15;
@@ -181,7 +176,6 @@ namespace CHIMERA_MAKER.UI
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(20, 469);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(719, 21);
             this.label8.TabIndex = 14;
@@ -196,7 +190,6 @@ namespace CHIMERA_MAKER.UI
             this.btnBuildStockpile.Font = new System.Drawing.Font("Segoe UI", 7.8F);
             this.btnBuildStockpile.ForeColor = System.Drawing.Color.OrangeRed;
             this.btnBuildStockpile.Location = new System.Drawing.Point(24, 402);
-            this.btnBuildStockpile.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnBuildStockpile.Name = "btnBuildStockpile";
             this.btnBuildStockpile.Size = new System.Drawing.Size(278, 35);
             this.btnBuildStockpile.TabIndex = 13;
@@ -211,7 +204,6 @@ namespace CHIMERA_MAKER.UI
             this.label7.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(20, 374);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(557, 23);
             this.label7.TabIndex = 12;
@@ -226,7 +218,6 @@ namespace CHIMERA_MAKER.UI
             this.btnRemoveIncompatibleRoms.Font = new System.Drawing.Font("Segoe UI", 7.8F);
             this.btnRemoveIncompatibleRoms.ForeColor = System.Drawing.Color.White;
             this.btnRemoveIncompatibleRoms.Location = new System.Drawing.Point(346, 306);
-            this.btnRemoveIncompatibleRoms.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnRemoveIncompatibleRoms.Name = "btnRemoveIncompatibleRoms";
             this.btnRemoveIncompatibleRoms.Size = new System.Drawing.Size(278, 35);
             this.btnRemoveIncompatibleRoms.TabIndex = 11;
@@ -243,7 +234,6 @@ namespace CHIMERA_MAKER.UI
             this.btnCheckCompatibility.Font = new System.Drawing.Font("Segoe UI", 7.8F);
             this.btnCheckCompatibility.ForeColor = System.Drawing.Color.White;
             this.btnCheckCompatibility.Location = new System.Drawing.Point(24, 306);
-            this.btnCheckCompatibility.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCheckCompatibility.Name = "btnCheckCompatibility";
             this.btnCheckCompatibility.Size = new System.Drawing.Size(278, 35);
             this.btnCheckCompatibility.TabIndex = 10;
@@ -259,7 +249,6 @@ namespace CHIMERA_MAKER.UI
             this.btnBrowseDerivedRomFolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBrowseDerivedRomFolder.ForeColor = System.Drawing.Color.White;
             this.btnBrowseDerivedRomFolder.Location = new System.Drawing.Point(640, 262);
-            this.btnBrowseDerivedRomFolder.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnBrowseDerivedRomFolder.Name = "btnBrowseDerivedRomFolder";
             this.btnBrowseDerivedRomFolder.Size = new System.Drawing.Size(112, 35);
             this.btnBrowseDerivedRomFolder.TabIndex = 9;
@@ -273,7 +262,6 @@ namespace CHIMERA_MAKER.UI
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(20, 271);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(149, 21);
             this.label6.TabIndex = 8;
@@ -282,7 +270,6 @@ namespace CHIMERA_MAKER.UI
             // tbDerivedRomFolder
             // 
             this.tbDerivedRomFolder.Location = new System.Drawing.Point(180, 266);
-            this.tbDerivedRomFolder.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbDerivedRomFolder.Name = "tbDerivedRomFolder";
             this.tbDerivedRomFolder.Size = new System.Drawing.Size(452, 28);
             this.tbDerivedRomFolder.TabIndex = 7;
@@ -293,7 +280,6 @@ namespace CHIMERA_MAKER.UI
             this.label5.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(20, 235);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(575, 23);
             this.label5.TabIndex = 6;
@@ -305,7 +291,6 @@ namespace CHIMERA_MAKER.UI
             this.label3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(20, 92);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(587, 23);
             this.label3.TabIndex = 4;
@@ -319,7 +304,6 @@ namespace CHIMERA_MAKER.UI
             this.btnPrepareGhBaseRom.Font = new System.Drawing.Font("Segoe UI", 7.8F);
             this.btnPrepareGhBaseRom.ForeColor = System.Drawing.Color.White;
             this.btnPrepareGhBaseRom.Location = new System.Drawing.Point(24, 163);
-            this.btnPrepareGhBaseRom.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnPrepareGhBaseRom.Name = "btnPrepareGhBaseRom";
             this.btnPrepareGhBaseRom.Size = new System.Drawing.Size(278, 35);
             this.btnPrepareGhBaseRom.TabIndex = 3;
@@ -336,7 +320,6 @@ namespace CHIMERA_MAKER.UI
             this.btnBrowseRom.Font = new System.Drawing.Font("Segoe UI", 7.8F);
             this.btnBrowseRom.ForeColor = System.Drawing.Color.White;
             this.btnBrowseRom.Location = new System.Drawing.Point(573, 120);
-            this.btnBrowseRom.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnBrowseRom.Name = "btnBrowseRom";
             this.btnBrowseRom.Size = new System.Drawing.Size(112, 35);
             this.btnBrowseRom.TabIndex = 2;
@@ -350,7 +333,6 @@ namespace CHIMERA_MAKER.UI
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(20, 128);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 21);
             this.label2.TabIndex = 1;
@@ -359,7 +341,6 @@ namespace CHIMERA_MAKER.UI
             // tbBaseRom
             // 
             this.tbBaseRom.Location = new System.Drawing.Point(112, 123);
-            this.tbBaseRom.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbBaseRom.Name = "tbBaseRom";
             this.tbBaseRom.Size = new System.Drawing.Size(452, 28);
             this.tbBaseRom.TabIndex = 0;
@@ -376,10 +357,9 @@ namespace CHIMERA_MAKER.UI
             this.tabPage2.Controls.Add(this.nmBlastlayerAmount);
             this.tabPage2.Controls.Add(this.label10);
             this.tabPage2.Location = new System.Drawing.Point(4, 30);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage2.Size = new System.Drawing.Size(859, 543);
+            this.tabPage2.Size = new System.Drawing.Size(878, 543);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Tag = "color:normal";
             this.tabPage2.Text = "Chimera Generator";
@@ -390,7 +370,6 @@ namespace CHIMERA_MAKER.UI
             this.cbSendToStash.Font = new System.Drawing.Font("Segoe UI", 7.8F);
             this.cbSendToStash.ForeColor = System.Drawing.Color.White;
             this.cbSendToStash.Location = new System.Drawing.Point(28, 440);
-            this.cbSendToStash.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbSendToStash.Name = "cbSendToStash";
             this.cbSendToStash.Size = new System.Drawing.Size(231, 25);
             this.cbSendToStash.TabIndex = 9;
@@ -403,7 +382,6 @@ namespace CHIMERA_MAKER.UI
             this.cbStockpilePlayer.Font = new System.Drawing.Font("Segoe UI", 7.8F);
             this.cbStockpilePlayer.ForeColor = System.Drawing.Color.White;
             this.cbStockpilePlayer.Location = new System.Drawing.Point(28, 405);
-            this.cbStockpilePlayer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbStockpilePlayer.Name = "cbStockpilePlayer";
             this.cbStockpilePlayer.Size = new System.Drawing.Size(422, 25);
             this.cbStockpilePlayer.TabIndex = 8;
@@ -416,7 +394,6 @@ namespace CHIMERA_MAKER.UI
             this.label13.Font = new System.Drawing.Font("Segoe UI", 7.8F);
             this.label13.ForeColor = System.Drawing.Color.White;
             this.label13.Location = new System.Drawing.Point(447, 28);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(279, 21);
             this.label13.TabIndex = 7;
@@ -430,7 +407,6 @@ namespace CHIMERA_MAKER.UI
             this.btnExport.Font = new System.Drawing.Font("Segoe UI", 7.8F);
             this.btnExport.ForeColor = System.Drawing.Color.White;
             this.btnExport.Location = new System.Drawing.Point(546, 309);
-            this.btnExport.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(278, 35);
             this.btnExport.TabIndex = 6;
@@ -447,7 +423,6 @@ namespace CHIMERA_MAKER.UI
             this.btnGenerate.Font = new System.Drawing.Font("Segoe UI", 7.8F);
             this.btnGenerate.ForeColor = System.Drawing.Color.OrangeRed;
             this.btnGenerate.Location = new System.Drawing.Point(28, 309);
-            this.btnGenerate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnGenerate.Name = "btnGenerate";
             this.btnGenerate.Size = new System.Drawing.Size(278, 35);
             this.btnGenerate.TabIndex = 5;
@@ -466,7 +441,6 @@ namespace CHIMERA_MAKER.UI
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 7.8F);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(28, 69);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Size = new System.Drawing.Size(795, 198);
@@ -479,7 +453,6 @@ namespace CHIMERA_MAKER.UI
             this.label12.AutoSize = true;
             this.label12.ForeColor = System.Drawing.Color.White;
             this.label12.Location = new System.Drawing.Point(716, 98);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(50, 21);
             this.label12.TabIndex = 4;
@@ -490,7 +463,6 @@ namespace CHIMERA_MAKER.UI
             this.label11.AutoSize = true;
             this.label11.ForeColor = System.Drawing.Color.White;
             this.label11.Location = new System.Drawing.Point(34, 98);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(32, 21);
             this.label11.TabIndex = 3;
@@ -499,7 +471,6 @@ namespace CHIMERA_MAKER.UI
             // tbSprinkleAmount
             // 
             this.tbSprinkleAmount.Location = new System.Drawing.Point(24, 123);
-            this.tbSprinkleAmount.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbSprinkleAmount.Maximum = 100;
             this.tbSprinkleAmount.Minimum = 1;
             this.tbSprinkleAmount.Name = "tbSprinkleAmount";
@@ -512,7 +483,6 @@ namespace CHIMERA_MAKER.UI
             // 
             this.rbSprinkleMerge.AutoSize = true;
             this.rbSprinkleMerge.Location = new System.Drawing.Point(24, 57);
-            this.rbSprinkleMerge.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rbSprinkleMerge.Name = "rbSprinkleMerge";
             this.rbSprinkleMerge.Size = new System.Drawing.Size(310, 25);
             this.rbSprinkleMerge.TabIndex = 1;
@@ -524,7 +494,6 @@ namespace CHIMERA_MAKER.UI
             this.rbFullMerge.AutoSize = true;
             this.rbFullMerge.Checked = true;
             this.rbFullMerge.Location = new System.Drawing.Point(24, 29);
-            this.rbFullMerge.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rbFullMerge.Name = "rbFullMerge";
             this.rbFullMerge.Size = new System.Drawing.Size(151, 25);
             this.rbFullMerge.TabIndex = 0;
@@ -539,7 +508,6 @@ namespace CHIMERA_MAKER.UI
             this.nmBlastlayerAmount.Font = new System.Drawing.Font("Segoe UI", 7.8F);
             this.nmBlastlayerAmount.ForeColor = System.Drawing.Color.White;
             this.nmBlastlayerAmount.Location = new System.Drawing.Point(294, 25);
-            this.nmBlastlayerAmount.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.nmBlastlayerAmount.Maximum = new decimal(new int[] {
             69,
             0,
@@ -561,7 +529,6 @@ namespace CHIMERA_MAKER.UI
             this.label10.Font = new System.Drawing.Font("Segoe UI", 7.8F);
             this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(24, 28);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(232, 21);
             this.label10.TabIndex = 2;
@@ -594,7 +561,7 @@ namespace CHIMERA_MAKER.UI
             this.tabPage3.Location = new System.Drawing.Point(4, 30);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(859, 543);
+            this.tabPage3.Size = new System.Drawing.Size(878, 543);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Savestate Combiner";
             // 
@@ -607,7 +574,6 @@ namespace CHIMERA_MAKER.UI
             this.btnReload.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.btnReload.ForeColor = System.Drawing.Color.White;
             this.btnReload.Location = new System.Drawing.Point(337, 44);
-            this.btnReload.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnReload.Name = "btnReload";
             this.btnReload.Size = new System.Drawing.Size(132, 37);
             this.btnReload.TabIndex = 159;
@@ -622,7 +588,6 @@ namespace CHIMERA_MAKER.UI
             this.label22.AutoSize = true;
             this.label22.ForeColor = System.Drawing.Color.White;
             this.label22.Location = new System.Drawing.Point(39, 14);
-            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(219, 21);
             this.label22.TabIndex = 158;
@@ -633,7 +598,6 @@ namespace CHIMERA_MAKER.UI
             this.label15.AutoSize = true;
             this.label15.ForeColor = System.Drawing.Color.White;
             this.label15.Location = new System.Drawing.Point(214, 34);
-            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(50, 21);
             this.label15.TabIndex = 157;
@@ -644,7 +608,6 @@ namespace CHIMERA_MAKER.UI
             this.label14.AutoSize = true;
             this.label14.ForeColor = System.Drawing.Color.White;
             this.label14.Location = new System.Drawing.Point(39, 34);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(32, 21);
             this.label14.TabIndex = 156;
@@ -653,7 +616,6 @@ namespace CHIMERA_MAKER.UI
             // trkbRandomStatePerc
             // 
             this.trkbRandomStatePerc.Location = new System.Drawing.Point(31, 53);
-            this.trkbRandomStatePerc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.trkbRandomStatePerc.Maximum = 100;
             this.trkbRandomStatePerc.Minimum = 1;
             this.trkbRandomStatePerc.Name = "trkbRandomStatePerc";
@@ -671,7 +633,6 @@ namespace CHIMERA_MAKER.UI
             this.btnRefreshDomains.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.btnRefreshDomains.ForeColor = System.Drawing.Color.White;
             this.btnRefreshDomains.Location = new System.Drawing.Point(676, 325);
-            this.btnRefreshDomains.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnRefreshDomains.Name = "btnRefreshDomains";
             this.btnRefreshDomains.Size = new System.Drawing.Size(132, 37);
             this.btnRefreshDomains.TabIndex = 154;
@@ -690,7 +651,6 @@ namespace CHIMERA_MAKER.UI
             this.btnSelectRandom.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.btnSelectRandom.ForeColor = System.Drawing.Color.White;
             this.btnSelectRandom.Location = new System.Drawing.Point(527, 85);
-            this.btnSelectRandom.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSelectRandom.Name = "btnSelectRandom";
             this.btnSelectRandom.Size = new System.Drawing.Size(280, 37);
             this.btnSelectRandom.TabIndex = 153;
@@ -709,7 +669,6 @@ namespace CHIMERA_MAKER.UI
             this.btnSelectAll.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.btnSelectAll.ForeColor = System.Drawing.Color.White;
             this.btnSelectAll.Location = new System.Drawing.Point(531, 325);
-            this.btnSelectAll.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSelectAll.Name = "btnSelectAll";
             this.btnSelectAll.Size = new System.Drawing.Size(132, 37);
             this.btnSelectAll.TabIndex = 152;
@@ -725,7 +684,6 @@ namespace CHIMERA_MAKER.UI
             this.nmBlastCount.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.nmBlastCount.ForeColor = System.Drawing.Color.White;
             this.nmBlastCount.Location = new System.Drawing.Point(31, 428);
-            this.nmBlastCount.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.nmBlastCount.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -753,7 +711,6 @@ namespace CHIMERA_MAKER.UI
             0,
             0});
             this.nmAddressInterval.Location = new System.Drawing.Point(321, 196);
-            this.nmAddressInterval.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.nmAddressInterval.Maximum = new decimal(new int[] {
             256,
             0,
@@ -813,7 +770,6 @@ namespace CHIMERA_MAKER.UI
             // btnSendFrankenstateTemplates
             // 
             this.btnSendFrankenstateTemplates.Location = new System.Drawing.Point(321, 494);
-            this.btnSendFrankenstateTemplates.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSendFrankenstateTemplates.Name = "btnSendFrankenstateTemplates";
             this.btnSendFrankenstateTemplates.Size = new System.Drawing.Size(278, 35);
             this.btnSendFrankenstateTemplates.TabIndex = 147;
@@ -824,7 +780,6 @@ namespace CHIMERA_MAKER.UI
             // btnGenerateFrankenState
             // 
             this.btnGenerateFrankenState.Location = new System.Drawing.Point(31, 494);
-            this.btnGenerateFrankenState.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnGenerateFrankenState.Name = "btnGenerateFrankenState";
             this.btnGenerateFrankenState.Size = new System.Drawing.Size(278, 35);
             this.btnGenerateFrankenState.TabIndex = 146;
@@ -838,7 +793,6 @@ namespace CHIMERA_MAKER.UI
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.White;
             this.label16.Location = new System.Drawing.Point(27, 376);
-            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(623, 20);
             this.label16.TabIndex = 145;
@@ -850,7 +804,6 @@ namespace CHIMERA_MAKER.UI
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.label18.ForeColor = System.Drawing.Color.White;
             this.label18.Location = new System.Drawing.Point(526, 53);
-            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(305, 20);
             this.label18.TabIndex = 144;
@@ -861,7 +814,6 @@ namespace CHIMERA_MAKER.UI
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(27, 404);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 21);
             this.label1.TabIndex = 141;
@@ -873,7 +825,6 @@ namespace CHIMERA_MAKER.UI
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.label19.ForeColor = System.Drawing.Color.White;
             this.label19.Location = new System.Drawing.Point(27, 133);
-            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(444, 20);
             this.label19.TabIndex = 143;
@@ -884,7 +835,6 @@ namespace CHIMERA_MAKER.UI
             this.label17.AutoSize = true;
             this.label17.ForeColor = System.Drawing.Color.White;
             this.label17.Location = new System.Drawing.Point(316, 171);
-            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(120, 21);
             this.label17.TabIndex = 140;
@@ -895,7 +845,6 @@ namespace CHIMERA_MAKER.UI
             this.label21.AutoSize = true;
             this.label21.ForeColor = System.Drawing.Color.White;
             this.label21.Location = new System.Drawing.Point(526, 133);
-            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(51, 21);
             this.label21.TabIndex = 142;
@@ -906,7 +855,6 @@ namespace CHIMERA_MAKER.UI
             this.label20.AutoSize = true;
             this.label20.ForeColor = System.Drawing.Color.White;
             this.label20.Location = new System.Drawing.Point(27, 168);
-            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(135, 21);
             this.label20.TabIndex = 139;
@@ -920,7 +868,6 @@ namespace CHIMERA_MAKER.UI
             this.btnHelp.Font = new System.Drawing.Font("Segoe UI", 7.8F);
             this.btnHelp.ForeColor = System.Drawing.Color.White;
             this.btnHelp.Location = new System.Drawing.Point(15, 177);
-            this.btnHelp.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Size = new System.Drawing.Size(142, 35);
             this.btnHelp.TabIndex = 3;
@@ -934,7 +881,6 @@ namespace CHIMERA_MAKER.UI
             this.logoPanel.BackgroundImage = global::CHIMERA_MAKER.Properties.Resources.cmlogo;
             this.logoPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.logoPanel.Location = new System.Drawing.Point(18, 18);
-            this.logoPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.logoPanel.Name = "logoPanel";
             this.logoPanel.Size = new System.Drawing.Size(867, 154);
             this.logoPanel.TabIndex = 0;
@@ -944,6 +890,7 @@ namespace CHIMERA_MAKER.UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(96)))), ((int)(((byte)(96)))));
             this.ClientSize = new System.Drawing.Size(902, 825);
             this.Controls.Add(this.btnHelp);
@@ -953,7 +900,10 @@ namespace CHIMERA_MAKER.UI
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MinimumSize = new System.Drawing.Size(924, 887);
             this.Name = "PluginForm";
+            this.Padding = new System.Windows.Forms.Padding(20);
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Tag = "color:dark1";
             this.Text = "Plugin Form";
