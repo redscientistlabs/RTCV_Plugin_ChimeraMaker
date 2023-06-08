@@ -23,6 +23,7 @@ namespace CHIMERA_MAKER
         public const string SPECPUSH = Ep.PREFIX + nameof(SPECPUSH);
 
         //To emu side
+        public const string BYTESGET = Ep.PREFIX + nameof(BYTESGET);
         public const string GET_TEMPLATES = Ep.PREFIX + nameof(GET_TEMPLATES);
 
         //To rtc side

@@ -510,5 +510,13 @@ It's time to use the program. Build the stockpile and SAVE IT. Go to the Chimera
                 stateCount++;
             }
         }
+
+        private void btnSelectAll_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < lbStates.Items.Count; i++)
+            {
+                lbStates.SetSelected(i, true);
+            }
+        }
     }
 }
