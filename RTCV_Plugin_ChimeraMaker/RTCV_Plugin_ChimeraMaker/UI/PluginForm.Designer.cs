@@ -64,19 +64,19 @@ namespace CHIMERA_MAKER.UI
             this.nmBlastlayerAmount = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.cbSendToStash2 = new System.Windows.Forms.CheckBox();
             this.btnReload = new System.Windows.Forms.Button();
             this.label22 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.trkbRandomStatePerc = new System.Windows.Forms.TrackBar();
             this.btnRefreshDomains = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
             this.btnSelectRandom = new System.Windows.Forms.Button();
             this.btnSelectAll = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
             this.nmBlastCount = new System.Windows.Forms.NumericUpDown();
             this.nmAddressInterval = new System.Windows.Forms.NumericUpDown();
             this.lbStates = new RTCV.UI.Components.Controls.ListBoxExtended();
+            this.trkbRandomStatePerc = new System.Windows.Forms.TrackBar();
             this.lbMemoryDomains = new RTCV.UI.Components.Controls.ListBoxExtended();
-            this.btnSendFrankenstateTemplates = new System.Windows.Forms.Button();
             this.btnGenerateFrankenState = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -94,9 +94,9 @@ namespace CHIMERA_MAKER.UI
             ((System.ComponentModel.ISupportInitialize)(this.tbSprinkleAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmBlastlayerAmount)).BeginInit();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trkbRandomStatePerc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmBlastCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmAddressInterval)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trkbRandomStatePerc)).BeginInit();
             this.SuspendLayout();
             // 
             // lbName
@@ -359,7 +359,7 @@ namespace CHIMERA_MAKER.UI
             this.tabPage2.Location = new System.Drawing.Point(4, 30);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage2.Size = new System.Drawing.Size(878, 543);
+            this.tabPage2.Size = new System.Drawing.Size(859, 543);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Tag = "color:normal";
             this.tabPage2.Text = "Chimera Generator";
@@ -536,20 +536,20 @@ namespace CHIMERA_MAKER.UI
             // 
             // tabPage3
             // 
-            this.tabPage3.BackColor = System.Drawing.Color.Black;
+            this.tabPage3.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.tabPage3.Controls.Add(this.cbSendToStash2);
             this.tabPage3.Controls.Add(this.btnReload);
             this.tabPage3.Controls.Add(this.label22);
-            this.tabPage3.Controls.Add(this.label15);
-            this.tabPage3.Controls.Add(this.label14);
-            this.tabPage3.Controls.Add(this.trkbRandomStatePerc);
             this.tabPage3.Controls.Add(this.btnRefreshDomains);
+            this.tabPage3.Controls.Add(this.label15);
             this.tabPage3.Controls.Add(this.btnSelectRandom);
             this.tabPage3.Controls.Add(this.btnSelectAll);
+            this.tabPage3.Controls.Add(this.label14);
             this.tabPage3.Controls.Add(this.nmBlastCount);
             this.tabPage3.Controls.Add(this.nmAddressInterval);
             this.tabPage3.Controls.Add(this.lbStates);
+            this.tabPage3.Controls.Add(this.trkbRandomStatePerc);
             this.tabPage3.Controls.Add(this.lbMemoryDomains);
-            this.tabPage3.Controls.Add(this.btnSendFrankenstateTemplates);
             this.tabPage3.Controls.Add(this.btnGenerateFrankenState);
             this.tabPage3.Controls.Add(this.label16);
             this.tabPage3.Controls.Add(this.label18);
@@ -561,9 +561,22 @@ namespace CHIMERA_MAKER.UI
             this.tabPage3.Location = new System.Drawing.Point(4, 30);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(878, 543);
+            this.tabPage3.Size = new System.Drawing.Size(859, 543);
             this.tabPage3.TabIndex = 2;
+            this.tabPage3.Tag = "color:normal";
             this.tabPage3.Text = "Savestate Combiner";
+            // 
+            // cbSendToStash2
+            // 
+            this.cbSendToStash2.AutoSize = true;
+            this.cbSendToStash2.Font = new System.Drawing.Font("Segoe UI", 7.8F);
+            this.cbSendToStash2.ForeColor = System.Drawing.Color.White;
+            this.cbSendToStash2.Location = new System.Drawing.Point(292, 496);
+            this.cbSendToStash2.Name = "cbSendToStash2";
+            this.cbSendToStash2.Size = new System.Drawing.Size(231, 25);
+            this.cbSendToStash2.TabIndex = 161;
+            this.cbSendToStash2.Text = "Send Result to Stash History";
+            this.cbSendToStash2.UseVisualStyleBackColor = true;
             // 
             // btnReload
             // 
@@ -573,9 +586,9 @@ namespace CHIMERA_MAKER.UI
             this.btnReload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReload.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.btnReload.ForeColor = System.Drawing.Color.White;
-            this.btnReload.Location = new System.Drawing.Point(337, 44);
+            this.btnReload.Location = new System.Drawing.Point(23, 381);
             this.btnReload.Name = "btnReload";
-            this.btnReload.Size = new System.Drawing.Size(132, 37);
+            this.btnReload.Size = new System.Drawing.Size(253, 37);
             this.btnReload.TabIndex = 159;
             this.btnReload.TabStop = false;
             this.btnReload.Tag = "color:light1";
@@ -587,42 +600,11 @@ namespace CHIMERA_MAKER.UI
             // 
             this.label22.AutoSize = true;
             this.label22.ForeColor = System.Drawing.Color.White;
-            this.label22.Location = new System.Drawing.Point(39, 14);
+            this.label22.Location = new System.Drawing.Point(566, 270);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(219, 21);
+            this.label22.Size = new System.Drawing.Size(187, 21);
             this.label22.TabIndex = 158;
-            this.label22.Text = "Random State Percentage WIP";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(214, 34);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(50, 21);
-            this.label15.TabIndex = 157;
-            this.label15.Text = "100%";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(39, 34);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(32, 21);
-            this.label14.TabIndex = 156;
-            this.label14.Text = "1%";
-            // 
-            // trkbRandomStatePerc
-            // 
-            this.trkbRandomStatePerc.Location = new System.Drawing.Point(31, 53);
-            this.trkbRandomStatePerc.Maximum = 100;
-            this.trkbRandomStatePerc.Minimum = 1;
-            this.trkbRandomStatePerc.Name = "trkbRandomStatePerc";
-            this.trkbRandomStatePerc.Size = new System.Drawing.Size(232, 69);
-            this.trkbRandomStatePerc.TabIndex = 155;
-            this.trkbRandomStatePerc.TickFrequency = 10;
-            this.trkbRandomStatePerc.Value = 50;
+            this.label22.Text = "Random State Percentage";
             // 
             // btnRefreshDomains
             // 
@@ -632,15 +614,25 @@ namespace CHIMERA_MAKER.UI
             this.btnRefreshDomains.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRefreshDomains.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.btnRefreshDomains.ForeColor = System.Drawing.Color.White;
-            this.btnRefreshDomains.Location = new System.Drawing.Point(676, 325);
+            this.btnRefreshDomains.Location = new System.Drawing.Point(424, 381);
             this.btnRefreshDomains.Name = "btnRefreshDomains";
-            this.btnRefreshDomains.Size = new System.Drawing.Size(132, 37);
+            this.btnRefreshDomains.Size = new System.Drawing.Size(120, 37);
             this.btnRefreshDomains.TabIndex = 154;
             this.btnRefreshDomains.TabStop = false;
             this.btnRefreshDomains.Tag = "color:light1";
             this.btnRefreshDomains.Text = "Unselect all";
             this.btnRefreshDomains.UseVisualStyleBackColor = false;
             this.btnRefreshDomains.Click += new System.EventHandler(this.btnUnselectAllStates_Click);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Location = new System.Drawing.Point(762, 349);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(50, 21);
+            this.label15.TabIndex = 157;
+            this.label15.Text = "100%";
             // 
             // btnSelectRandom
             // 
@@ -650,9 +642,9 @@ namespace CHIMERA_MAKER.UI
             this.btnSelectRandom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSelectRandom.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.btnSelectRandom.ForeColor = System.Drawing.Color.White;
-            this.btnSelectRandom.Location = new System.Drawing.Point(527, 85);
+            this.btnSelectRandom.Location = new System.Drawing.Point(559, 381);
             this.btnSelectRandom.Name = "btnSelectRandom";
-            this.btnSelectRandom.Size = new System.Drawing.Size(280, 37);
+            this.btnSelectRandom.Size = new System.Drawing.Size(252, 37);
             this.btnSelectRandom.TabIndex = 153;
             this.btnSelectRandom.TabStop = false;
             this.btnSelectRandom.Tag = "color:light1";
@@ -668,9 +660,9 @@ namespace CHIMERA_MAKER.UI
             this.btnSelectAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSelectAll.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.btnSelectAll.ForeColor = System.Drawing.Color.White;
-            this.btnSelectAll.Location = new System.Drawing.Point(531, 325);
+            this.btnSelectAll.Location = new System.Drawing.Point(292, 381);
             this.btnSelectAll.Name = "btnSelectAll";
-            this.btnSelectAll.Size = new System.Drawing.Size(132, 37);
+            this.btnSelectAll.Size = new System.Drawing.Size(118, 37);
             this.btnSelectAll.TabIndex = 152;
             this.btnSelectAll.TabStop = false;
             this.btnSelectAll.Tag = "color:light1";
@@ -678,12 +670,22 @@ namespace CHIMERA_MAKER.UI
             this.btnSelectAll.UseVisualStyleBackColor = false;
             this.btnSelectAll.Click += new System.EventHandler(this.btnSelectAll_Click);
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(555, 349);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(32, 21);
+            this.label14.TabIndex = 156;
+            this.label14.Text = "1%";
+            // 
             // nmBlastCount
             // 
             this.nmBlastCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.nmBlastCount.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.nmBlastCount.ForeColor = System.Drawing.Color.White;
-            this.nmBlastCount.Location = new System.Drawing.Point(31, 428);
+            this.nmBlastCount.Location = new System.Drawing.Point(570, 154);
             this.nmBlastCount.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -710,7 +712,7 @@ namespace CHIMERA_MAKER.UI
             0,
             0,
             0});
-            this.nmAddressInterval.Location = new System.Drawing.Point(321, 196);
+            this.nmAddressInterval.Location = new System.Drawing.Point(570, 220);
             this.nmAddressInterval.Maximum = new decimal(new int[] {
             256,
             0,
@@ -738,14 +740,25 @@ namespace CHIMERA_MAKER.UI
             this.lbStates.FormattingEnabled = true;
             this.lbStates.IntegralHeight = false;
             this.lbStates.ItemHeight = 21;
-            this.lbStates.Location = new System.Drawing.Point(531, 157);
+            this.lbStates.Location = new System.Drawing.Point(292, 130);
             this.lbStates.Margin = new System.Windows.Forms.Padding(8);
             this.lbStates.Name = "lbStates";
             this.lbStates.ScrollAlwaysVisible = true;
             this.lbStates.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lbStates.Size = new System.Drawing.Size(278, 155);
+            this.lbStates.Size = new System.Drawing.Size(252, 240);
             this.lbStates.TabIndex = 149;
             this.lbStates.Tag = "color:dark3";
+            // 
+            // trkbRandomStatePerc
+            // 
+            this.trkbRandomStatePerc.Location = new System.Drawing.Point(555, 301);
+            this.trkbRandomStatePerc.Maximum = 100;
+            this.trkbRandomStatePerc.Minimum = 1;
+            this.trkbRandomStatePerc.Name = "trkbRandomStatePerc";
+            this.trkbRandomStatePerc.Size = new System.Drawing.Size(257, 69);
+            this.trkbRandomStatePerc.TabIndex = 155;
+            this.trkbRandomStatePerc.TickFrequency = 10;
+            this.trkbRandomStatePerc.Value = 50;
             // 
             // lbMemoryDomains
             // 
@@ -758,33 +771,29 @@ namespace CHIMERA_MAKER.UI
             this.lbMemoryDomains.FormattingEnabled = true;
             this.lbMemoryDomains.IntegralHeight = false;
             this.lbMemoryDomains.ItemHeight = 21;
-            this.lbMemoryDomains.Location = new System.Drawing.Point(31, 196);
+            this.lbMemoryDomains.Location = new System.Drawing.Point(24, 133);
             this.lbMemoryDomains.Margin = new System.Windows.Forms.Padding(8);
             this.lbMemoryDomains.Name = "lbMemoryDomains";
             this.lbMemoryDomains.ScrollAlwaysVisible = true;
             this.lbMemoryDomains.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lbMemoryDomains.Size = new System.Drawing.Size(278, 155);
+            this.lbMemoryDomains.Size = new System.Drawing.Size(252, 237);
             this.lbMemoryDomains.TabIndex = 148;
             this.lbMemoryDomains.Tag = "color:dark3";
             // 
-            // btnSendFrankenstateTemplates
-            // 
-            this.btnSendFrankenstateTemplates.Location = new System.Drawing.Point(321, 494);
-            this.btnSendFrankenstateTemplates.Name = "btnSendFrankenstateTemplates";
-            this.btnSendFrankenstateTemplates.Size = new System.Drawing.Size(278, 35);
-            this.btnSendFrankenstateTemplates.TabIndex = 147;
-            this.btnSendFrankenstateTemplates.Text = "Send to Stockpile";
-            this.btnSendFrankenstateTemplates.UseVisualStyleBackColor = true;
-            this.btnSendFrankenstateTemplates.Click += new System.EventHandler(this.btnSendFrankenstateTemplates_Click);
-            // 
             // btnGenerateFrankenState
             // 
-            this.btnGenerateFrankenState.Location = new System.Drawing.Point(31, 494);
+            this.btnGenerateFrankenState.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.btnGenerateFrankenState.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.btnGenerateFrankenState.FlatAppearance.BorderSize = 0;
+            this.btnGenerateFrankenState.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGenerateFrankenState.ForeColor = System.Drawing.Color.OrangeRed;
+            this.btnGenerateFrankenState.Location = new System.Drawing.Point(23, 490);
             this.btnGenerateFrankenState.Name = "btnGenerateFrankenState";
-            this.btnGenerateFrankenState.Size = new System.Drawing.Size(278, 35);
+            this.btnGenerateFrankenState.Size = new System.Drawing.Size(252, 35);
             this.btnGenerateFrankenState.TabIndex = 146;
-            this.btnGenerateFrankenState.Text = "Generate Frankenstate";
-            this.btnGenerateFrankenState.UseVisualStyleBackColor = true;
+            this.btnGenerateFrankenState.Tag = "color:dark2";
+            this.btnGenerateFrankenState.Text = "Generate";
+            this.btnGenerateFrankenState.UseVisualStyleBackColor = false;
             this.btnGenerateFrankenState.Click += new System.EventHandler(this.button1_Click);
             // 
             // label16
@@ -792,7 +801,7 @@ namespace CHIMERA_MAKER.UI
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(27, 376);
+            this.label16.Location = new System.Drawing.Point(27, 442);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(623, 20);
             this.label16.TabIndex = 145;
@@ -803,7 +812,7 @@ namespace CHIMERA_MAKER.UI
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(526, 53);
+            this.label18.Location = new System.Drawing.Point(520, 64);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(305, 20);
             this.label18.TabIndex = 144;
@@ -813,7 +822,7 @@ namespace CHIMERA_MAKER.UI
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(27, 404);
+            this.label1.Location = new System.Drawing.Point(566, 130);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 21);
             this.label1.TabIndex = 141;
@@ -824,7 +833,7 @@ namespace CHIMERA_MAKER.UI
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Location = new System.Drawing.Point(27, 133);
+            this.label19.Location = new System.Drawing.Point(20, 64);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(444, 20);
             this.label19.TabIndex = 143;
@@ -834,7 +843,7 @@ namespace CHIMERA_MAKER.UI
             // 
             this.label17.AutoSize = true;
             this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(316, 171);
+            this.label17.Location = new System.Drawing.Point(566, 196);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(120, 21);
             this.label17.TabIndex = 140;
@@ -844,7 +853,7 @@ namespace CHIMERA_MAKER.UI
             // 
             this.label21.AutoSize = true;
             this.label21.ForeColor = System.Drawing.Color.White;
-            this.label21.Location = new System.Drawing.Point(526, 133);
+            this.label21.Location = new System.Drawing.Point(314, 101);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(51, 21);
             this.label21.TabIndex = 142;
@@ -854,7 +863,7 @@ namespace CHIMERA_MAKER.UI
             // 
             this.label20.AutoSize = true;
             this.label20.ForeColor = System.Drawing.Color.White;
-            this.label20.Location = new System.Drawing.Point(27, 168);
+            this.label20.Location = new System.Drawing.Point(20, 101);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(135, 21);
             this.label20.TabIndex = 139;
@@ -919,9 +928,9 @@ namespace CHIMERA_MAKER.UI
             ((System.ComponentModel.ISupportInitialize)(this.nmBlastlayerAmount)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trkbRandomStatePerc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmBlastCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmAddressInterval)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trkbRandomStatePerc)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -975,14 +984,14 @@ namespace CHIMERA_MAKER.UI
         public System.Windows.Forms.NumericUpDown nmAddressInterval;
         public RTCV.UI.Components.Controls.ListBoxExtended lbStates;
         public RTCV.UI.Components.Controls.ListBoxExtended lbMemoryDomains;
-        private System.Windows.Forms.Button btnSendFrankenstateTemplates;
         private System.Windows.Forms.Button btnGenerateFrankenState;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.CheckBox cbSendToStash2;
     }
 }

@@ -75,7 +75,7 @@ namespace CHIMERA_MAKER.UI
 
         private void btnBrowseDerivedRomFolder_Click(object sender, EventArgs e)
         {
-            using (var fbd = new FolderBrowserDialog())
+            using (var fbd = new Ookii.Dialogs.WinForms.VistaFolderBrowserDialog())
             {
                 DialogResult result = fbd.ShowDialog();
 
@@ -403,27 +403,52 @@ It's time to use the program. Build the stockpile and SAVE IT. Go to the Chimera
 
         private void button1_Click(object sender, EventArgs e)
         {
-            StashKey key = new StashKey();
-            var bls = GenerateStateTemplates();
-            var state = savestates[lbStates.SelectedItems.Cast<string>().ToArray()[RtcCore.RND.Next(lbStates.SelectedItems.Count)]];
-            List<BlastUnit> blastUnits = new List<BlastUnit>();
-            for (int i = 0; i < ((int)nmBlastCount.Value); i++)
+            if (cbSendToStash2.Checked)
             {
-                var bl = bls.Item1[RND.Next(bls.Item1.Count)];
-                var blastUnit = bl.Layer[RND.Next(bl.Layer.Count)];
-                blastUnits.Add(blastUnit);
+                StashKey key = new StashKey();
+                var bls = GenerateStateTemplates();
+                var state = savestates[lbStates.SelectedItems.Cast<string>().ToArray()[RtcCore.RND.Next(lbStates.SelectedItems.Count)]];
+                List<BlastUnit> blastUnits = new List<BlastUnit>();
+                for (int i = 0; i < ((int)nmBlastCount.Value); i++)
+                {
+                    var bl = bls.Item1[RND.Next(bls.Item1.Count)];
+                    var blastUnit = bl.Layer[RND.Next(bl.Layer.Count)];
+                    blastUnits.Add(blastUnit);
+                }
+                key = (StashKey)bls.Item2[RND.Next(bls.Item2.Count)].Clone();
+                key.BlastLayer = new BlastLayer(blastUnits);
+
+                StockpileManagerUISide.StashHistory.Add(key);
+
+                S.GET<StashHistoryForm>().DontLoadSelectedStash = true;
+                S.GET<StashHistoryForm>().RefreshStashHistorySelectLast();
+                S.GET<StashHistoryForm>().DontLoadSelectedStash = true;
+
+                //execute chimera here
+                StockpileManagerUISide.ApplyStashkey(key);
             }
-            key = (StashKey)bls.Item2[RND.Next(bls.Item2.Count)].Clone();
-            key.BlastLayer = new BlastLayer(blastUnits);
+            else
+            {
+                var templates = GenerateStateTemplates();
+                for (int i = 0; i < templates.Item2.Count; i++)
+                {
+                    var bl = templates.Item1[i];
+                    StashKey sk = (StashKey)templates.Item2[i].Clone();
+                    sk.BlastLayer = bl;
 
-            StockpileManagerUISide.StashHistory.Add(key);
+                    //push to stash
+                    StockpileManagerUISide.StashHistory.Add(sk);
+                    S.GET<StashHistoryForm>().DontLoadSelectedStash = true;
+                    S.GET<StashHistoryForm>().RefreshStashHistorySelectLast();
+                    S.GET<StashHistoryForm>().DontLoadSelectedStash = true;
+                    S.GET<StockpileManagerForm>().dgvStockpile.ClearSelection();
+                    S.GET<StashHistoryForm>().DontLoadSelectedStash = false;
 
-            S.GET<StashHistoryForm>().DontLoadSelectedStash = true;
-            S.GET<StashHistoryForm>().RefreshStashHistorySelectLast();
-            S.GET<StashHistoryForm>().DontLoadSelectedStash = true;
 
-            //execute chimera here
-            StockpileManagerUISide.ApplyStashkey(key);
+                    //push to stockpile
+                    S.GET<StashHistoryForm>().AddStashToStockpile(false);
+                }
+            }
         }
 
         private void btnSendFrankenstateTemplates_Click(object sender, EventArgs e)
@@ -447,11 +472,6 @@ It's time to use the program. Build the stockpile and SAVE IT. Go to the Chimera
                 //push to stockpile
                 S.GET<StashHistoryForm>().AddStashToStockpile(false);
             }
-        }
-
-        private void HandleRefreshDomainsClick(object sender, EventArgs e)
-        {
-
         }
 
         private void btnSelectAllStates_Click(object sender, EventArgs e)
@@ -517,6 +537,11 @@ It's time to use the program. Build the stockpile and SAVE IT. Go to the Chimera
             {
                 lbStates.SetSelected(i, true);
             }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
