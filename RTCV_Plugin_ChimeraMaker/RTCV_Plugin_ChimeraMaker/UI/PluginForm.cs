@@ -30,6 +30,40 @@ namespace CHIMERA_MAKER.UI
 
         private Dictionary<string, StashKey> savestates = new Dictionary<string, StashKey>();
 
+        private void PluginForm_Load(object sender, EventArgs e)
+        {
+            string text;
+
+            Random rnd = new Random((int)DateTime.Now.Ticks);
+            int chance = rnd.Next(10);
+            switch (chance)
+            {
+                case 1:
+                    text = "Mashes things together";
+                    break;
+                case 2:
+                    text = "2.523 heads better than one";
+                    break;
+                case 3:
+                    text = "Brutally unstable";
+                    break;
+                case 4:
+                    text = "Turns nightmares into miracles";
+                    break;
+                case 5:
+                    text = "Scrambled and burnt";
+                    break;
+                case 6:
+                    text = "It's alive, it's alive";
+                    break;
+                case 7:
+                default:
+                    text = "Collapsing parallel universes";
+                    break;
+            }
+
+            lbName.Text = text;
+        }
         public PluginForm(CHIMERA_MAKER _plugin)
         {
             plugin = _plugin;
@@ -40,8 +74,6 @@ namespace CHIMERA_MAKER.UI
 
             this.Text = CHIMERA_MAKER.CamelCase(nameof(CHIMERA_MAKER).Replace("_", " ")) + $" - Version {plugin.Version.ToString()}"; //automatic window title
         }
-
-
 
         private void PluginForm_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -89,7 +121,7 @@ namespace CHIMERA_MAKER.UI
         StashKey BaseStashkey = null;
         private void btnPrepareGhBaseRom_Click(object sender, EventArgs e)
         {
-            if(String.IsNullOrEmpty(tbBaseRom.Text) || !File.Exists(tbBaseRom.Text))
+            if (String.IsNullOrEmpty(tbBaseRom.Text) || !File.Exists(tbBaseRom.Text))
             {
                 MessageBox.Show("Cannot prepare Glitch Harvester State, Base Rom path is invalid or empty.");
                 return; // if no base rom present, return without continuing 
@@ -101,7 +133,7 @@ namespace CHIMERA_MAKER.UI
 
             BaseStashkey = S.GET<GlitchHarvesterBlastForm>().SendRawToStash(true);
 
-            MessageBox.Show("Savestate created successfully");
+            MessageBox.Show("Savestate created successfully.");
         }
 
         List<FileInfo> IncompatibleRoms;
@@ -110,7 +142,7 @@ namespace CHIMERA_MAKER.UI
         {
             if ((String.IsNullOrEmpty(tbBaseRom.Text) || !File.Exists(tbBaseRom.Text)) && (String.IsNullOrEmpty(tbBaseRom.Text) || !Directory.EnumerateFileSystemEntries(tbDerivedRomFolder.Text).Any()))
             {
-                MessageBox.Show("Cannot check compatibility, Base Rom path and Derived Rom Folder are invalid or empty .");
+                MessageBox.Show("Cannot check compatibility, Base Rom path and Derived Rom Folder are invalid or empty.");
                 return; // if neither present, return without continuing 
             }
 
@@ -144,7 +176,7 @@ namespace CHIMERA_MAKER.UI
 
             if((IncompatibleRoms.Count > 0))
             {
-                MessageBox.Show($"Found Incompatible Roms:\n{string.Join("\n", IncompatibleRoms.Select(it => it.Name))}");
+                MessageBox.Show($"Found Incompatible files:\n{string.Join("\n", IncompatibleRoms.Select(it => it.Name))}");
             }
             else
             {
@@ -152,26 +184,34 @@ namespace CHIMERA_MAKER.UI
             }
 
             btnRemoveIncompatibleRoms.Enabled = (IncompatibleRoms.Count > 0);
-
         }
 
         private void btnRemoveIncompatibleRoms_Click(object sender, EventArgs e)
         {
-            foreach(var file in IncompatibleRoms)
+            // Shouldn't delete files without warning the user
+            DialogResult dialogResult = MessageBox.Show($"This will DELETE all of the below listed incompatible files from the Derived Rom Folder, are you sure?\n{string.Join("\n", IncompatibleRoms.Select(it => it.Name))}", "", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
             {
-                file.Delete();
-            }
+                foreach (var file in IncompatibleRoms)
+                {
+                    file.Delete();
+                }
 
-            MessageBox.Show($"The incompatible roms have been removed from folder.");
-            IncompatibleRoms = new List<FileInfo>();
-            btnRemoveIncompatibleRoms.Enabled = (IncompatibleRoms.Count > 0);
+                MessageBox.Show($"The incompatible files have been removed from folder.");
+                IncompatibleRoms = new List<FileInfo>();
+                btnRemoveIncompatibleRoms.Enabled = (IncompatibleRoms.Count > 0);
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                MessageBox.Show($"Incompatible files where not removed, remove or move the following files and check compatability again:\n{string.Join("\n", IncompatibleRoms.Select(it => it.Name))}");
+            }
         }
 
         private void btnBuildStockpile_Click(object sender, EventArgs e)
         {
             if ((String.IsNullOrEmpty(tbBaseRom.Text) || !File.Exists(tbBaseRom.Text)) && (String.IsNullOrEmpty(tbBaseRom.Text) || !Directory.EnumerateFileSystemEntries(tbDerivedRomFolder.Text).Any()))
             {
-                MessageBox.Show("Cannot build Stockpile, Base Rom path and Derived Rom Folder are invalid or empty .");
+                MessageBox.Show("Cannot build Stockpile, Base Rom path and Derived Rom Folder are invalid or empty.");
                 return; // if neither present, return without continuing 
             }
 
@@ -193,7 +233,7 @@ namespace CHIMERA_MAKER.UI
                 return;
             }
 
-            MessageBox.Show($"Depending on the amount of derived roms you are about to ingest, this may take a long time. " +
+            MessageBox.Show($"Depending on the amount of derived roms you are about to ingest, this may take a long time." +
                 $"\n\n THE WINDOW WILL NOT FREEZE," +
                 $" \nthis is going to run inside the bizhawk process." +
                 $"\n\n Another message box will pop once the stockpile generation is done.");
@@ -281,9 +321,9 @@ namespace CHIMERA_MAKER.UI
             var randomizedStashKeys = allStashkeys.OrderBy(it => RtcCore.RND.Next());
             var keysToMerge = randomizedStashKeys.Take(blastlayersAmount);
 
-            foreach(var key in keysToMerge)
+            foreach (var key in keysToMerge)
             {
-                if(fullMerge)
+                if (fullMerge)
                 {
                     Chimera.BlastLayer.Layer.AddRange(key.BlastLayer.Layer);
                 }
@@ -296,11 +336,9 @@ namespace CHIMERA_MAKER.UI
                     var selectedUnits = randomUnits.Take(unitsToTake);
                     Chimera.BlastLayer.Layer.AddRange(selectedUnits);
                 }
-
-
             }
-
-            if(cbSendToStash.Checked)
+             
+            if (cbSendToStash.Checked)
             StockpileManagerUISide.StashHistory.Add(Chimera);
 
             S.GET<StashHistoryForm>().DontLoadSelectedStash = true;
@@ -314,44 +352,15 @@ namespace CHIMERA_MAKER.UI
 
         }
 
-        private void PluginForm_Load(object sender, EventArgs e)
-        {
-            string text;
-
-            Random rnd = new Random((int)DateTime.Now.Ticks);
-            int chance = rnd.Next(10);
-            switch(chance)
-            {
-                case 1:
-                    text = "Mashes things together";
-                    break;
-                case 2:
-                    text = "2.523 heads better than one";
-                    break;
-                case 3:
-                    text = "Brutally unstable";
-                    break;
-                case 4:
-                    text = "Turns nightmares into miracles";
-                    break;
-                case 5:
-                    text = "Scrambled and burnt";
-                    break;
-                case 6:
-                    text = "It's alive, it's alive";
-                    break;
-                case 7:
-                default:
-                    text = "Collapsing parallel universes";
-                    break;
-            }
-
-            lbName.Text = text;
-        }
 
         private void btnHelp_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(
+            if(tabControl1.SelectedTab == tabPage3)
+            {
+                MessageBox.Show("WIP instructions of Amalgastate generator.");
+            }
+            else
+                MessageBox.Show(
 @"Welcome to the Chimera Maker plugin.
 
 This plugin allows you to take romhack variants of a game and turn it into a pool of data from which the corruptor can pull from.
@@ -368,48 +377,47 @@ It's time to use the program. Build the stockpile and SAVE IT. Go to the Chimera
 ");
         }
 
-        private void button6_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void nmAddressInterval_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage4_Click(object sender, EventArgs e)
-        {
-        }
 
         private (List<BlastLayer>, List<StashKey>) GenerateStateTemplates()
         {
-            string[] SELECTED_DOMAINS = lbMemoryDomains.SelectedItems.Cast<string>().ToArray();
-            string[] SELECTED_STATES = lbStates.SelectedItems.Cast<string>().ToArray();
+            string[] SELECTED_DOMAINS = lbASMemoryDomains.SelectedItems.Cast<string>().ToArray();
+            string[] SELECTED_STATES = lbASStates.SelectedItems.Cast<string>().ToArray();
             List<BlastLayer> bls = new List<BlastLayer>();
             List<StashKey> stashKeys = new List<StashKey>();
             foreach (var state_name in SELECTED_STATES)
             {
                 stashKeys.Add(savestates[state_name]);
             }
-            bls = LocalNetCoreRouter.QueryRoute<List<BlastLayer>>(Ep.EMU_SIDE, Commands.GET_TEMPLATES, (object)Tuple.Create(SELECTED_DOMAINS, stashKeys, ((int)nmAddressInterval.Value)));
+            bls = LocalNetCoreRouter.QueryRoute<List<BlastLayer>>(Ep.EMU_SIDE, Commands.GET_TEMPLATES, (object)Tuple.Create(SELECTED_DOMAINS, stashKeys, ((int)nmASAddressInterval.Value)));
             return (bls, stashKeys);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        //Amalgastate//
+        private void btnASToStash_Click(object sender, EventArgs e)
         {
-            if (cbSendToStash2.Checked)
+            if (lbASStates.SelectedItems.Count < 2 && lbASMemoryDomains.SelectedItems.Count < 1)
             {
-                StashKey key = new StashKey();
+                MessageBox.Show("You must create at least two states and select at least one domain before continuing.");
+                return;
+            }
+            if (lbASStates.SelectedItems.Count < 2)
+            {
+                MessageBox.Show("You must create at least two states before continuing.");
+                return;
+            }
+            if (lbASMemoryDomains.SelectedItems.Count < 1)
+            {
+                MessageBox.Show("You must select at least one domain before continuing.");
+                return;
+            }
+
+            StashKey key = new StashKey();
                 var bls = GenerateStateTemplates();
-                var state = savestates[lbStates.SelectedItems.Cast<string>().ToArray()[RtcCore.RND.Next(lbStates.SelectedItems.Count)]];
+                var state = savestates[lbASStates.SelectedItems.Cast<string>().ToArray()[RtcCore.RND.Next(lbASStates.SelectedItems.Count)]];
                 List<BlastUnit> blastUnits = new List<BlastUnit>();
-                for (int i = 0; i < ((int)nmBlastCount.Value); i++)
+                for (int i = 0; i < ((int)nmASBlastCount.Value); i++)
                 {
                     var bl = bls.Item1[RND.Next(bls.Item1.Count)];
                     var blastUnit = bl.Layer[RND.Next(bl.Layer.Count)];
@@ -426,33 +434,28 @@ It's time to use the program. Build the stockpile and SAVE IT. Go to the Chimera
 
                 //execute chimera here
                 StockpileManagerUISide.ApplyStashkey(key);
-            }
-            else
-            {
-                var templates = GenerateStateTemplates();
-                for (int i = 0; i < templates.Item2.Count; i++)
-                {
-                    var bl = templates.Item1[i];
-                    StashKey sk = (StashKey)templates.Item2[i].Clone();
-                    sk.BlastLayer = bl;
-
-                    //push to stash
-                    StockpileManagerUISide.StashHistory.Add(sk);
-                    S.GET<StashHistoryForm>().DontLoadSelectedStash = true;
-                    S.GET<StashHistoryForm>().RefreshStashHistorySelectLast();
-                    S.GET<StashHistoryForm>().DontLoadSelectedStash = true;
-                    S.GET<StockpileManagerForm>().dgvStockpile.ClearSelection();
-                    S.GET<StashHistoryForm>().DontLoadSelectedStash = false;
-
-
-                    //push to stockpile
-                    S.GET<StashHistoryForm>().AddStashToStockpile(false);
-                }
-            }
         }
 
-        private void btnSendFrankenstateTemplates_Click(object sender, EventArgs e)
+        private void btnASToStockpile_Click(object sender, EventArgs e)
         {
+
+            if (lbASStates.SelectedItems.Count < 2 && lbASMemoryDomains.SelectedItems.Count < 1)
+            {
+                MessageBox.Show("You must create at least two states and select at least one domain before continuing.");
+                return;
+            }
+            if (lbASStates.SelectedItems.Count < 2)
+            {
+                MessageBox.Show("You must create at least two states before continuing.");
+                return;
+            }
+            if (lbASMemoryDomains.SelectedItems.Count < 1)
+            {
+                MessageBox.Show("You must select at least one domain before continuing.");
+                return;
+            }
+
+
             var templates = GenerateStateTemplates();
             for (int i = 0; i < templates.Item2.Count; i++)
             {
@@ -474,58 +477,62 @@ It's time to use the program. Build the stockpile and SAVE IT. Go to the Chimera
             }
         }
 
-        private void btnSelectAllStates_Click(object sender, EventArgs e)
-        {
-            for (int i = 0; i < lbStates.Items.Count; i++)
-            {
-                lbStates.SetSelected(i, true);
-            }
-        }
-
         private void btnUnselectAllStates_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < lbStates.Items.Count; i++)
+            for (int i = 0; i < lbASStates.Items.Count; i++)
             {
-                lbStates.SetSelected(i, false);
+                lbASStates.SetSelected(i, false);
             }
         }
 
         private void btnSelectRandom_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < lbStates.Items.Count; i++)
+            if (lbASStates.Items.Count < 2)
             {
-                lbStates.SetSelected(i, false);
+                return;
             }
-            double percentToSelect = trkbRandomStatePerc.Value / 100d;
-            int amountToSelect = (int)((double)lbStates.Items.Count * percentToSelect);
+
+            for (int i = 0; i < lbASStates.Items.Count; i++)
+            {
+                lbASStates.SetSelected(i, false);
+            }
+            double percentToSelect = trkbASRandomStatePerc.Value / 100d;
+            int amountToSelect = (int)((double)lbASStates.Items.Count * percentToSelect);
+
+            //ensure at least 2 states get selected
+            if (amountToSelect < 2)
+            {
+                amountToSelect = 2;
+            }
+
             for (int i = 0; i < amountToSelect; i++)
             {
-                lbStates.SetSelected(RND.Next(lbStates.Items.Count), true);
+                lbASStates.SetSelected(RND.Next(lbASStates.Items.Count), true); 
             }
         }
 
         private void btnReload_Click(object sender, EventArgs e)
         {
-            lbMemoryDomains.Items.Clear();
+            lbASMemoryDomains.Items.Clear();
             if (MemoryDomains.MemoryInterfaces != null)
             {
-                lbMemoryDomains.Items.AddRange(MemoryDomains.MemoryInterfaces?.Keys.ToArray());
+                lbASMemoryDomains.Items.AddRange(MemoryDomains.MemoryInterfaces?.Keys.ToArray());
             }
 
             if (MemoryDomains.VmdPool.Count > 0)
             {
-                lbMemoryDomains.Items.AddRange(MemoryDomains.VmdPool.Values.Select(it => it.ToString()).ToArray());
+                lbASMemoryDomains.Items.AddRange(MemoryDomains.VmdPool.Values.Select(it => it.ToString()).ToArray());
             }
 
-            nmAddressInterval.Value = 16;
+            nmASAddressInterval.Value = 16;
 
-            lbStates.Items.Clear();
+            lbASStates.Items.Clear();
             savestates.Clear();
             int stateCount = 0;
             foreach (SaveStateKey state in ((BindingSource)S.GET<SavestateManagerForm>().savestateList.DataSource).List)
             {
                 string text = !string.IsNullOrWhiteSpace(state.Text) ? $"{stateCount}_{state.Text}" : stateCount.ToString();
-                lbStates.Items.Add(text);
+                lbASStates.Items.Add(text);
                 savestates.Add(text, state.StashKey);
                 stateCount++;
             }
@@ -533,15 +540,48 @@ It's time to use the program. Build the stockpile and SAVE IT. Go to the Chimera
 
         private void btnSelectAll_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < lbStates.Items.Count; i++)
+            for (int i = 0; i < lbASStates.Items.Count; i++)
             {
-                lbStates.SetSelected(i, true);
+                lbASStates.SetSelected(i, true);
             }
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
+            for (int i = 0; i < lbASMemoryDomains.Items.Count; i++)
+            {
+                lbASMemoryDomains.SetSelected(i, true);
+            }
+        }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            for (int i = 0; i < lbASMemoryDomains.Items.Count; i++)
+            {
+                lbASMemoryDomains.SetSelected(i, false);
+            }
+        }
+
+        private void btnASSelectRandomDomains_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < lbASMemoryDomains.Items.Count; i++)
+            {
+                lbASMemoryDomains.SetSelected(i, false);
+            }
+            Random rnd = new Random();
+            for (int i = 0; i < lbASMemoryDomains.Items.Count; i++)
+            {
+                int randomNumber = rnd.Next(2);
+                if (randomNumber == 0)
+                {
+                    lbASMemoryDomains.SetSelected(i, true);
+                }
+            }
+            //ensure at least 1 domain is selected
+            if (lbASMemoryDomains.SelectedItems.Count == 0)
+            {
+                lbASMemoryDomains.SetSelected(RND.Next(lbASMemoryDomains.Items.Count), true);
+            }
         }
     }
 }

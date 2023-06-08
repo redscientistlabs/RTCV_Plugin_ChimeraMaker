@@ -64,29 +64,33 @@ namespace CHIMERA_MAKER.UI
             this.nmBlastlayerAmount = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.cbSendToStash2 = new System.Windows.Forms.CheckBox();
-            this.btnReload = new System.Windows.Forms.Button();
-            this.label22 = new System.Windows.Forms.Label();
-            this.btnRefreshDomains = new System.Windows.Forms.Button();
-            this.label15 = new System.Windows.Forms.Label();
-            this.btnSelectRandom = new System.Windows.Forms.Button();
-            this.btnSelectAll = new System.Windows.Forms.Button();
-            this.label14 = new System.Windows.Forms.Label();
-            this.nmBlastCount = new System.Windows.Forms.NumericUpDown();
-            this.nmAddressInterval = new System.Windows.Forms.NumericUpDown();
-            this.lbStates = new RTCV.UI.Components.Controls.ListBoxExtended();
-            this.trkbRandomStatePerc = new System.Windows.Forms.TrackBar();
-            this.lbMemoryDomains = new RTCV.UI.Components.Controls.ListBoxExtended();
-            this.btnGenerateFrankenState = new System.Windows.Forms.Button();
-            this.label16 = new System.Windows.Forms.Label();
+            this.nmASBlastCount = new System.Windows.Forms.NumericUpDown();
+            this.nmASAddressInterval = new System.Windows.Forms.NumericUpDown();
             this.label18 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
+            this.btnASSelectRandomDomains = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
+            this.btnASToStockpile = new System.Windows.Forms.Button();
+            this.label24 = new System.Windows.Forms.Label();
+            this.btnASUnselectAllDomains = new System.Windows.Forms.Button();
+            this.btnASSelectAllDomains = new System.Windows.Forms.Button();
+            this.btnASReload = new System.Windows.Forms.Button();
+            this.label22 = new System.Windows.Forms.Label();
+            this.btnASUnselectAllStates = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.btnASSelectRandomStates = new System.Windows.Forms.Button();
+            this.btnASSelectAllStates = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.lbASStates = new RTCV.UI.Components.Controls.ListBoxExtended();
+            this.trkbASRandomStatePerc = new System.Windows.Forms.TrackBar();
+            this.lbASMemoryDomains = new RTCV.UI.Components.Controls.ListBoxExtended();
+            this.label19 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.btnHelp = new System.Windows.Forms.Button();
             this.logoPanel = new System.Windows.Forms.Panel();
+            this.btnASToStash = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -94,9 +98,9 @@ namespace CHIMERA_MAKER.UI
             ((System.ComponentModel.ISupportInitialize)(this.tbSprinkleAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmBlastlayerAmount)).BeginInit();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nmBlastCount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nmAddressInterval)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trkbRandomStatePerc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmASBlastCount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmASAddressInterval)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trkbASRandomStatePerc)).BeginInit();
             this.SuspendLayout();
             // 
             // lbName
@@ -245,6 +249,7 @@ namespace CHIMERA_MAKER.UI
             // btnBrowseDerivedRomFolder
             // 
             this.btnBrowseDerivedRomFolder.BackColor = System.Drawing.Color.Gray;
+            this.btnBrowseDerivedRomFolder.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnBrowseDerivedRomFolder.FlatAppearance.BorderSize = 0;
             this.btnBrowseDerivedRomFolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBrowseDerivedRomFolder.ForeColor = System.Drawing.Color.White;
@@ -537,25 +542,29 @@ namespace CHIMERA_MAKER.UI
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.tabPage3.Controls.Add(this.cbSendToStash2);
-            this.tabPage3.Controls.Add(this.btnReload);
-            this.tabPage3.Controls.Add(this.label22);
-            this.tabPage3.Controls.Add(this.btnRefreshDomains);
-            this.tabPage3.Controls.Add(this.label15);
-            this.tabPage3.Controls.Add(this.btnSelectRandom);
-            this.tabPage3.Controls.Add(this.btnSelectAll);
-            this.tabPage3.Controls.Add(this.label14);
-            this.tabPage3.Controls.Add(this.nmBlastCount);
-            this.tabPage3.Controls.Add(this.nmAddressInterval);
-            this.tabPage3.Controls.Add(this.lbStates);
-            this.tabPage3.Controls.Add(this.trkbRandomStatePerc);
-            this.tabPage3.Controls.Add(this.lbMemoryDomains);
-            this.tabPage3.Controls.Add(this.btnGenerateFrankenState);
-            this.tabPage3.Controls.Add(this.label16);
+            this.tabPage3.Controls.Add(this.nmASBlastCount);
+            this.tabPage3.Controls.Add(this.nmASAddressInterval);
             this.tabPage3.Controls.Add(this.label18);
             this.tabPage3.Controls.Add(this.label1);
-            this.tabPage3.Controls.Add(this.label19);
             this.tabPage3.Controls.Add(this.label17);
+            this.tabPage3.Controls.Add(this.btnASSelectRandomDomains);
+            this.tabPage3.Controls.Add(this.label16);
+            this.tabPage3.Controls.Add(this.btnASToStockpile);
+            this.tabPage3.Controls.Add(this.label24);
+            this.tabPage3.Controls.Add(this.btnASUnselectAllDomains);
+            this.tabPage3.Controls.Add(this.btnASSelectAllDomains);
+            this.tabPage3.Controls.Add(this.btnASReload);
+            this.tabPage3.Controls.Add(this.label22);
+            this.tabPage3.Controls.Add(this.btnASUnselectAllStates);
+            this.tabPage3.Controls.Add(this.label15);
+            this.tabPage3.Controls.Add(this.btnASSelectRandomStates);
+            this.tabPage3.Controls.Add(this.btnASSelectAllStates);
+            this.tabPage3.Controls.Add(this.label14);
+            this.tabPage3.Controls.Add(this.lbASStates);
+            this.tabPage3.Controls.Add(this.trkbASRandomStatePerc);
+            this.tabPage3.Controls.Add(this.lbASMemoryDomains);
+            this.tabPage3.Controls.Add(this.btnASToStash);
+            this.tabPage3.Controls.Add(this.label19);
             this.tabPage3.Controls.Add(this.label21);
             this.tabPage3.Controls.Add(this.label20);
             this.tabPage3.Location = new System.Drawing.Point(4, 30);
@@ -564,296 +573,347 @@ namespace CHIMERA_MAKER.UI
             this.tabPage3.Size = new System.Drawing.Size(859, 543);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Tag = "color:normal";
-            this.tabPage3.Text = "Savestate Combiner";
+            this.tabPage3.Text = "Amalgastate Generator";
             // 
-            // cbSendToStash2
+            // nmASBlastCount
             // 
-            this.cbSendToStash2.AutoSize = true;
-            this.cbSendToStash2.Font = new System.Drawing.Font("Segoe UI", 7.8F);
-            this.cbSendToStash2.ForeColor = System.Drawing.Color.White;
-            this.cbSendToStash2.Location = new System.Drawing.Point(292, 496);
-            this.cbSendToStash2.Name = "cbSendToStash2";
-            this.cbSendToStash2.Size = new System.Drawing.Size(231, 25);
-            this.cbSendToStash2.TabIndex = 161;
-            this.cbSendToStash2.Text = "Send Result to Stash History";
-            this.cbSendToStash2.UseVisualStyleBackColor = true;
-            // 
-            // btnReload
-            // 
-            this.btnReload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnReload.BackColor = System.Drawing.Color.Gray;
-            this.btnReload.FlatAppearance.BorderSize = 0;
-            this.btnReload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReload.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.btnReload.ForeColor = System.Drawing.Color.White;
-            this.btnReload.Location = new System.Drawing.Point(23, 381);
-            this.btnReload.Name = "btnReload";
-            this.btnReload.Size = new System.Drawing.Size(253, 37);
-            this.btnReload.TabIndex = 159;
-            this.btnReload.TabStop = false;
-            this.btnReload.Tag = "color:light1";
-            this.btnReload.Text = "Reload";
-            this.btnReload.UseVisualStyleBackColor = false;
-            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.ForeColor = System.Drawing.Color.White;
-            this.label22.Location = new System.Drawing.Point(566, 270);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(187, 21);
-            this.label22.TabIndex = 158;
-            this.label22.Text = "Random State Percentage";
-            // 
-            // btnRefreshDomains
-            // 
-            this.btnRefreshDomains.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRefreshDomains.BackColor = System.Drawing.Color.Gray;
-            this.btnRefreshDomains.FlatAppearance.BorderSize = 0;
-            this.btnRefreshDomains.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRefreshDomains.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.btnRefreshDomains.ForeColor = System.Drawing.Color.White;
-            this.btnRefreshDomains.Location = new System.Drawing.Point(424, 381);
-            this.btnRefreshDomains.Name = "btnRefreshDomains";
-            this.btnRefreshDomains.Size = new System.Drawing.Size(120, 37);
-            this.btnRefreshDomains.TabIndex = 154;
-            this.btnRefreshDomains.TabStop = false;
-            this.btnRefreshDomains.Tag = "color:light1";
-            this.btnRefreshDomains.Text = "Unselect all";
-            this.btnRefreshDomains.UseVisualStyleBackColor = false;
-            this.btnRefreshDomains.Click += new System.EventHandler(this.btnUnselectAllStates_Click);
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(762, 349);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(50, 21);
-            this.label15.TabIndex = 157;
-            this.label15.Text = "100%";
-            // 
-            // btnSelectRandom
-            // 
-            this.btnSelectRandom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnSelectRandom.BackColor = System.Drawing.Color.Gray;
-            this.btnSelectRandom.FlatAppearance.BorderSize = 0;
-            this.btnSelectRandom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSelectRandom.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.btnSelectRandom.ForeColor = System.Drawing.Color.White;
-            this.btnSelectRandom.Location = new System.Drawing.Point(559, 381);
-            this.btnSelectRandom.Name = "btnSelectRandom";
-            this.btnSelectRandom.Size = new System.Drawing.Size(252, 37);
-            this.btnSelectRandom.TabIndex = 153;
-            this.btnSelectRandom.TabStop = false;
-            this.btnSelectRandom.Tag = "color:light1";
-            this.btnSelectRandom.Text = "Select random states";
-            this.btnSelectRandom.UseVisualStyleBackColor = false;
-            this.btnSelectRandom.Click += new System.EventHandler(this.btnSelectRandom_Click);
-            // 
-            // btnSelectAll
-            // 
-            this.btnSelectAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnSelectAll.BackColor = System.Drawing.Color.Gray;
-            this.btnSelectAll.FlatAppearance.BorderSize = 0;
-            this.btnSelectAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSelectAll.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.btnSelectAll.ForeColor = System.Drawing.Color.White;
-            this.btnSelectAll.Location = new System.Drawing.Point(292, 381);
-            this.btnSelectAll.Name = "btnSelectAll";
-            this.btnSelectAll.Size = new System.Drawing.Size(118, 37);
-            this.btnSelectAll.TabIndex = 152;
-            this.btnSelectAll.TabStop = false;
-            this.btnSelectAll.Tag = "color:light1";
-            this.btnSelectAll.Text = "Select all";
-            this.btnSelectAll.UseVisualStyleBackColor = false;
-            this.btnSelectAll.Click += new System.EventHandler(this.btnSelectAll_Click);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(555, 349);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(32, 21);
-            this.label14.TabIndex = 156;
-            this.label14.Text = "1%";
-            // 
-            // nmBlastCount
-            // 
-            this.nmBlastCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.nmBlastCount.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.nmBlastCount.ForeColor = System.Drawing.Color.White;
-            this.nmBlastCount.Location = new System.Drawing.Point(570, 154);
-            this.nmBlastCount.Maximum = new decimal(new int[] {
+            this.nmASBlastCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.nmASBlastCount.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.nmASBlastCount.ForeColor = System.Drawing.Color.White;
+            this.nmASBlastCount.Location = new System.Drawing.Point(571, 76);
+            this.nmASBlastCount.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
-            this.nmBlastCount.Name = "nmBlastCount";
-            this.nmBlastCount.Size = new System.Drawing.Size(152, 29);
-            this.nmBlastCount.TabIndex = 150;
-            this.nmBlastCount.Tag = "color:dark1";
-            this.nmBlastCount.Value = new decimal(new int[] {
+            this.nmASBlastCount.Name = "nmASBlastCount";
+            this.nmASBlastCount.Size = new System.Drawing.Size(119, 29);
+            this.nmASBlastCount.TabIndex = 172;
+            this.nmASBlastCount.Tag = "color:dark1";
+            this.nmASBlastCount.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.nmBlastCount.ValueChanged += new System.EventHandler(this.nmAddressInterval_ValueChanged);
             // 
-            // nmAddressInterval
+            // nmASAddressInterval
             // 
-            this.nmAddressInterval.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.nmAddressInterval.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.nmAddressInterval.ForeColor = System.Drawing.Color.White;
-            this.nmAddressInterval.Increment = new decimal(new int[] {
+            this.nmASAddressInterval.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.nmASAddressInterval.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.nmASAddressInterval.ForeColor = System.Drawing.Color.White;
+            this.nmASAddressInterval.Increment = new decimal(new int[] {
             16,
             0,
             0,
             0});
-            this.nmAddressInterval.Location = new System.Drawing.Point(570, 220);
-            this.nmAddressInterval.Maximum = new decimal(new int[] {
+            this.nmASAddressInterval.Location = new System.Drawing.Point(703, 76);
+            this.nmASAddressInterval.Maximum = new decimal(new int[] {
             256,
             0,
             0,
             0});
-            this.nmAddressInterval.Name = "nmAddressInterval";
-            this.nmAddressInterval.Size = new System.Drawing.Size(56, 29);
-            this.nmAddressInterval.TabIndex = 151;
-            this.nmAddressInterval.Tag = "color:dark1";
-            this.nmAddressInterval.Value = new decimal(new int[] {
+            this.nmASAddressInterval.Name = "nmASAddressInterval";
+            this.nmASAddressInterval.Size = new System.Drawing.Size(120, 29);
+            this.nmASAddressInterval.TabIndex = 173;
+            this.nmASAddressInterval.Tag = "color:dark1";
+            this.nmASAddressInterval.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.nmAddressInterval.ValueChanged += new System.EventHandler(this.nmAddressInterval_ValueChanged);
-            // 
-            // lbStates
-            // 
-            this.lbStates.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbStates.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(16)))), ((int)(((byte)(16)))));
-            this.lbStates.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lbStates.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.lbStates.ForeColor = System.Drawing.Color.White;
-            this.lbStates.FormattingEnabled = true;
-            this.lbStates.IntegralHeight = false;
-            this.lbStates.ItemHeight = 21;
-            this.lbStates.Location = new System.Drawing.Point(292, 130);
-            this.lbStates.Margin = new System.Windows.Forms.Padding(8);
-            this.lbStates.Name = "lbStates";
-            this.lbStates.ScrollAlwaysVisible = true;
-            this.lbStates.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lbStates.Size = new System.Drawing.Size(252, 240);
-            this.lbStates.TabIndex = 149;
-            this.lbStates.Tag = "color:dark3";
-            // 
-            // trkbRandomStatePerc
-            // 
-            this.trkbRandomStatePerc.Location = new System.Drawing.Point(555, 301);
-            this.trkbRandomStatePerc.Maximum = 100;
-            this.trkbRandomStatePerc.Minimum = 1;
-            this.trkbRandomStatePerc.Name = "trkbRandomStatePerc";
-            this.trkbRandomStatePerc.Size = new System.Drawing.Size(257, 69);
-            this.trkbRandomStatePerc.TabIndex = 155;
-            this.trkbRandomStatePerc.TickFrequency = 10;
-            this.trkbRandomStatePerc.Value = 50;
-            // 
-            // lbMemoryDomains
-            // 
-            this.lbMemoryDomains.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbMemoryDomains.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(16)))), ((int)(((byte)(16)))));
-            this.lbMemoryDomains.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lbMemoryDomains.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.lbMemoryDomains.ForeColor = System.Drawing.Color.White;
-            this.lbMemoryDomains.FormattingEnabled = true;
-            this.lbMemoryDomains.IntegralHeight = false;
-            this.lbMemoryDomains.ItemHeight = 21;
-            this.lbMemoryDomains.Location = new System.Drawing.Point(24, 133);
-            this.lbMemoryDomains.Margin = new System.Windows.Forms.Padding(8);
-            this.lbMemoryDomains.Name = "lbMemoryDomains";
-            this.lbMemoryDomains.ScrollAlwaysVisible = true;
-            this.lbMemoryDomains.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lbMemoryDomains.Size = new System.Drawing.Size(252, 237);
-            this.lbMemoryDomains.TabIndex = 148;
-            this.lbMemoryDomains.Tag = "color:dark3";
-            // 
-            // btnGenerateFrankenState
-            // 
-            this.btnGenerateFrankenState.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.btnGenerateFrankenState.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.btnGenerateFrankenState.FlatAppearance.BorderSize = 0;
-            this.btnGenerateFrankenState.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGenerateFrankenState.ForeColor = System.Drawing.Color.OrangeRed;
-            this.btnGenerateFrankenState.Location = new System.Drawing.Point(23, 490);
-            this.btnGenerateFrankenState.Name = "btnGenerateFrankenState";
-            this.btnGenerateFrankenState.Size = new System.Drawing.Size(252, 35);
-            this.btnGenerateFrankenState.TabIndex = 146;
-            this.btnGenerateFrankenState.Tag = "color:dark2";
-            this.btnGenerateFrankenState.Text = "Generate";
-            this.btnGenerateFrankenState.UseVisualStyleBackColor = false;
-            this.btnGenerateFrankenState.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(27, 442);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(623, 20);
-            this.label16.TabIndex = 145;
-            this.label16.Text = "Step 3: Generate a frankenstate, or send state templates to the stockpile";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.label18.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
             this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(520, 64);
+            this.label18.Location = new System.Drawing.Point(567, 14);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(305, 20);
-            this.label18.TabIndex = 144;
-            this.label18.Text = "Step 2: Select savestates to merge";
+            this.label18.Size = new System.Drawing.Size(274, 23);
+            this.label18.TabIndex = 171;
+            this.label18.Text = "Step 3: Select Intensity, Precision";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(566, 130);
+            this.label1.Location = new System.Drawing.Point(567, 48);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 21);
-            this.label1.TabIndex = 141;
+            this.label1.TabIndex = 170;
             this.label1.Text = "Intensity";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Location = new System.Drawing.Point(20, 64);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(444, 20);
-            this.label19.TabIndex = 143;
-            this.label19.Text = "Step 1: Select domains and select Precision(Bytes)";
             // 
             // label17
             // 
             this.label17.AutoSize = true;
             this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(566, 196);
+            this.label17.Location = new System.Drawing.Point(698, 48);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(120, 21);
-            this.label17.TabIndex = 140;
-            this.label17.Text = "Precision(Bytes)";
+            this.label17.Size = new System.Drawing.Size(124, 21);
+            this.label17.TabIndex = 169;
+            this.label17.Text = "Precision (Bytes)";
+            // 
+            // btnASSelectRandomDomains
+            // 
+            this.btnASSelectRandomDomains.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnASSelectRandomDomains.BackColor = System.Drawing.Color.Gray;
+            this.btnASSelectRandomDomains.FlatAppearance.BorderSize = 0;
+            this.btnASSelectRandomDomains.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnASSelectRandomDomains.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.btnASSelectRandomDomains.ForeColor = System.Drawing.Color.White;
+            this.btnASSelectRandomDomains.Location = new System.Drawing.Point(33, 385);
+            this.btnASSelectRandomDomains.Name = "btnASSelectRandomDomains";
+            this.btnASSelectRandomDomains.Size = new System.Drawing.Size(252, 37);
+            this.btnASSelectRandomDomains.TabIndex = 168;
+            this.btnASSelectRandomDomains.TabStop = false;
+            this.btnASSelectRandomDomains.Tag = "color:light1";
+            this.btnASSelectRandomDomains.Text = "Select random Domains";
+            this.btnASSelectRandomDomains.UseVisualStyleBackColor = false;
+            this.btnASSelectRandomDomains.Click += new System.EventHandler(this.btnASSelectRandomDomains_Click);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.label16.ForeColor = System.Drawing.Color.White;
+            this.label16.Location = new System.Drawing.Point(566, 392);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(257, 23);
+            this.label16.TabIndex = 167;
+            this.label16.Text = "Step 4: Generate Amalgastates";
+            // 
+            // btnASToStockpile
+            // 
+            this.btnASToStockpile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.btnASToStockpile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.btnASToStockpile.FlatAppearance.BorderSize = 0;
+            this.btnASToStockpile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnASToStockpile.ForeColor = System.Drawing.Color.OrangeRed;
+            this.btnASToStockpile.Location = new System.Drawing.Point(704, 433);
+            this.btnASToStockpile.Name = "btnASToStockpile";
+            this.btnASToStockpile.Size = new System.Drawing.Size(118, 84);
+            this.btnASToStockpile.TabIndex = 166;
+            this.btnASToStockpile.Tag = "color:dark2";
+            this.btnASToStockpile.Text = "To Stockpile";
+            this.btnASToStockpile.UseVisualStyleBackColor = false;
+            this.btnASToStockpile.Click += new System.EventHandler(this.btnASToStockpile_Click);
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.label24.ForeColor = System.Drawing.Color.White;
+            this.label24.Location = new System.Drawing.Point(300, 14);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(228, 23);
+            this.label24.TabIndex = 165;
+            this.label24.Text = "Step 2: Select states to mix";
+            // 
+            // btnASUnselectAllDomains
+            // 
+            this.btnASUnselectAllDomains.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnASUnselectAllDomains.BackColor = System.Drawing.Color.Gray;
+            this.btnASUnselectAllDomains.FlatAppearance.BorderSize = 0;
+            this.btnASUnselectAllDomains.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnASUnselectAllDomains.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.btnASUnselectAllDomains.ForeColor = System.Drawing.Color.White;
+            this.btnASUnselectAllDomains.Location = new System.Drawing.Point(165, 433);
+            this.btnASUnselectAllDomains.Name = "btnASUnselectAllDomains";
+            this.btnASUnselectAllDomains.Size = new System.Drawing.Size(120, 37);
+            this.btnASUnselectAllDomains.TabIndex = 163;
+            this.btnASUnselectAllDomains.TabStop = false;
+            this.btnASUnselectAllDomains.Tag = "color:light1";
+            this.btnASUnselectAllDomains.Text = "Unselect all";
+            this.btnASUnselectAllDomains.UseVisualStyleBackColor = false;
+            this.btnASUnselectAllDomains.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // btnASSelectAllDomains
+            // 
+            this.btnASSelectAllDomains.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnASSelectAllDomains.BackColor = System.Drawing.Color.Gray;
+            this.btnASSelectAllDomains.FlatAppearance.BorderSize = 0;
+            this.btnASSelectAllDomains.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnASSelectAllDomains.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.btnASSelectAllDomains.ForeColor = System.Drawing.Color.White;
+            this.btnASSelectAllDomains.Location = new System.Drawing.Point(33, 433);
+            this.btnASSelectAllDomains.Name = "btnASSelectAllDomains";
+            this.btnASSelectAllDomains.Size = new System.Drawing.Size(118, 37);
+            this.btnASSelectAllDomains.TabIndex = 162;
+            this.btnASSelectAllDomains.TabStop = false;
+            this.btnASSelectAllDomains.Tag = "color:light1";
+            this.btnASSelectAllDomains.Text = "Select all";
+            this.btnASSelectAllDomains.UseVisualStyleBackColor = false;
+            this.btnASSelectAllDomains.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btnASReload
+            // 
+            this.btnASReload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnASReload.BackColor = System.Drawing.Color.Gray;
+            this.btnASReload.FlatAppearance.BorderSize = 0;
+            this.btnASReload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnASReload.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.btnASReload.ForeColor = System.Drawing.Color.White;
+            this.btnASReload.Location = new System.Drawing.Point(33, 480);
+            this.btnASReload.Name = "btnASReload";
+            this.btnASReload.Size = new System.Drawing.Size(522, 37);
+            this.btnASReload.TabIndex = 159;
+            this.btnASReload.TabStop = false;
+            this.btnASReload.Tag = "color:light1";
+            this.btnASReload.Text = "Reload Domain and State boxes";
+            this.btnASReload.UseVisualStyleBackColor = false;
+            this.btnASReload.Click += new System.EventHandler(this.btnReload_Click);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.ForeColor = System.Drawing.Color.White;
+            this.label22.Location = new System.Drawing.Point(577, 194);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(253, 21);
+            this.label22.TabIndex = 158;
+            this.label22.Text = "Amount of Random States to select";
+            // 
+            // btnASUnselectAllStates
+            // 
+            this.btnASUnselectAllStates.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnASUnselectAllStates.BackColor = System.Drawing.Color.Gray;
+            this.btnASUnselectAllStates.FlatAppearance.BorderSize = 0;
+            this.btnASUnselectAllStates.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnASUnselectAllStates.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.btnASUnselectAllStates.ForeColor = System.Drawing.Color.White;
+            this.btnASUnselectAllStates.Location = new System.Drawing.Point(433, 433);
+            this.btnASUnselectAllStates.Name = "btnASUnselectAllStates";
+            this.btnASUnselectAllStates.Size = new System.Drawing.Size(122, 37);
+            this.btnASUnselectAllStates.TabIndex = 154;
+            this.btnASUnselectAllStates.TabStop = false;
+            this.btnASUnselectAllStates.Tag = "color:light1";
+            this.btnASUnselectAllStates.Text = "Unselect all";
+            this.btnASUnselectAllStates.UseVisualStyleBackColor = false;
+            this.btnASUnselectAllStates.Click += new System.EventHandler(this.btnUnselectAllStates_Click);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Location = new System.Drawing.Point(758, 258);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(72, 21);
+            this.label15.TabIndex = 157;
+            this.label15.Text = "All states";
+            // 
+            // btnASSelectRandomStates
+            // 
+            this.btnASSelectRandomStates.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnASSelectRandomStates.BackColor = System.Drawing.Color.Gray;
+            this.btnASSelectRandomStates.FlatAppearance.BorderSize = 0;
+            this.btnASSelectRandomStates.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnASSelectRandomStates.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.btnASSelectRandomStates.ForeColor = System.Drawing.Color.White;
+            this.btnASSelectRandomStates.Location = new System.Drawing.Point(303, 386);
+            this.btnASSelectRandomStates.Name = "btnASSelectRandomStates";
+            this.btnASSelectRandomStates.Size = new System.Drawing.Size(252, 37);
+            this.btnASSelectRandomStates.TabIndex = 153;
+            this.btnASSelectRandomStates.TabStop = false;
+            this.btnASSelectRandomStates.Tag = "color:light1";
+            this.btnASSelectRandomStates.Text = "Select random states";
+            this.btnASSelectRandomStates.UseVisualStyleBackColor = false;
+            this.btnASSelectRandomStates.Click += new System.EventHandler(this.btnSelectRandom_Click);
+            // 
+            // btnASSelectAllStates
+            // 
+            this.btnASSelectAllStates.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnASSelectAllStates.BackColor = System.Drawing.Color.Gray;
+            this.btnASSelectAllStates.FlatAppearance.BorderSize = 0;
+            this.btnASSelectAllStates.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnASSelectAllStates.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.btnASSelectAllStates.ForeColor = System.Drawing.Color.White;
+            this.btnASSelectAllStates.Location = new System.Drawing.Point(304, 433);
+            this.btnASSelectAllStates.Name = "btnASSelectAllStates";
+            this.btnASSelectAllStates.Size = new System.Drawing.Size(118, 37);
+            this.btnASSelectAllStates.TabIndex = 152;
+            this.btnASSelectAllStates.TabStop = false;
+            this.btnASSelectAllStates.Tag = "color:light1";
+            this.btnASSelectAllStates.Text = "Select all";
+            this.btnASSelectAllStates.UseVisualStyleBackColor = false;
+            this.btnASSelectAllStates.Click += new System.EventHandler(this.btnSelectAll_Click);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(577, 258);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(19, 21);
+            this.label14.TabIndex = 156;
+            this.label14.Text = "2";
+            // 
+            // lbASStates
+            // 
+            this.lbASStates.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbASStates.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(16)))), ((int)(((byte)(16)))));
+            this.lbASStates.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lbASStates.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.lbASStates.ForeColor = System.Drawing.Color.White;
+            this.lbASStates.FormattingEnabled = true;
+            this.lbASStates.IntegralHeight = false;
+            this.lbASStates.ItemHeight = 21;
+            this.lbASStates.Location = new System.Drawing.Point(303, 65);
+            this.lbASStates.Margin = new System.Windows.Forms.Padding(8);
+            this.lbASStates.Name = "lbASStates";
+            this.lbASStates.ScrollAlwaysVisible = true;
+            this.lbASStates.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.lbASStates.Size = new System.Drawing.Size(252, 310);
+            this.lbASStates.TabIndex = 149;
+            this.lbASStates.Tag = "color:dark3";
+            // 
+            // trkbASRandomStatePerc
+            // 
+            this.trkbASRandomStatePerc.Location = new System.Drawing.Point(566, 218);
+            this.trkbASRandomStatePerc.Maximum = 100;
+            this.trkbASRandomStatePerc.Minimum = 1;
+            this.trkbASRandomStatePerc.Name = "trkbASRandomStatePerc";
+            this.trkbASRandomStatePerc.Size = new System.Drawing.Size(274, 69);
+            this.trkbASRandomStatePerc.TabIndex = 155;
+            this.trkbASRandomStatePerc.TickFrequency = 10;
+            this.trkbASRandomStatePerc.Value = 50;
+            // 
+            // lbASMemoryDomains
+            // 
+            this.lbASMemoryDomains.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbASMemoryDomains.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(16)))), ((int)(((byte)(16)))));
+            this.lbASMemoryDomains.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lbASMemoryDomains.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.lbASMemoryDomains.ForeColor = System.Drawing.Color.White;
+            this.lbASMemoryDomains.FormattingEnabled = true;
+            this.lbASMemoryDomains.IntegralHeight = false;
+            this.lbASMemoryDomains.ItemHeight = 21;
+            this.lbASMemoryDomains.Location = new System.Drawing.Point(33, 66);
+            this.lbASMemoryDomains.Margin = new System.Windows.Forms.Padding(8);
+            this.lbASMemoryDomains.Name = "lbASMemoryDomains";
+            this.lbASMemoryDomains.ScrollAlwaysVisible = true;
+            this.lbASMemoryDomains.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.lbASMemoryDomains.Size = new System.Drawing.Size(252, 309);
+            this.lbASMemoryDomains.TabIndex = 148;
+            this.lbASMemoryDomains.Tag = "color:dark3";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.label19.ForeColor = System.Drawing.Color.White;
+            this.label19.Location = new System.Drawing.Point(29, 14);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(269, 23);
+            this.label19.TabIndex = 143;
+            this.label19.Text = "Step 1: Select Domains to effect";
             // 
             // label21
             // 
             this.label21.AutoSize = true;
             this.label21.ForeColor = System.Drawing.Color.White;
-            this.label21.Location = new System.Drawing.Point(314, 101);
+            this.label21.Location = new System.Drawing.Point(300, 37);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(51, 21);
             this.label21.TabIndex = 142;
@@ -863,7 +923,7 @@ namespace CHIMERA_MAKER.UI
             // 
             this.label20.AutoSize = true;
             this.label20.ForeColor = System.Drawing.Color.White;
-            this.label20.Location = new System.Drawing.Point(20, 101);
+            this.label20.Location = new System.Drawing.Point(29, 37);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(135, 21);
             this.label20.TabIndex = 139;
@@ -876,7 +936,7 @@ namespace CHIMERA_MAKER.UI
             this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHelp.Font = new System.Drawing.Font("Segoe UI", 7.8F);
             this.btnHelp.ForeColor = System.Drawing.Color.White;
-            this.btnHelp.Location = new System.Drawing.Point(15, 177);
+            this.btnHelp.Location = new System.Drawing.Point(19, 178);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Size = new System.Drawing.Size(142, 35);
             this.btnHelp.TabIndex = 3;
@@ -895,6 +955,22 @@ namespace CHIMERA_MAKER.UI
             this.logoPanel.TabIndex = 0;
             this.logoPanel.Tag = "color:dark1";
             // 
+            // btnASToStash
+            // 
+            this.btnASToStash.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.btnASToStash.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.btnASToStash.FlatAppearance.BorderSize = 0;
+            this.btnASToStash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnASToStash.ForeColor = System.Drawing.Color.OrangeRed;
+            this.btnASToStash.Location = new System.Drawing.Point(571, 433);
+            this.btnASToStash.Name = "btnASToStash";
+            this.btnASToStash.Size = new System.Drawing.Size(122, 84);
+            this.btnASToStash.TabIndex = 146;
+            this.btnASToStash.Tag = "color:dark2";
+            this.btnASToStash.Text = "To Stash";
+            this.btnASToStash.UseVisualStyleBackColor = false;
+            this.btnASToStash.Click += new System.EventHandler(this.btnASToStash_Click);
+            // 
             // PluginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -909,13 +985,16 @@ namespace CHIMERA_MAKER.UI
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(924, 887);
             this.Name = "PluginForm";
             this.Padding = new System.Windows.Forms.Padding(20);
+            this.popoutAllowed = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Tag = "color:dark1";
             this.Text = "Plugin Form";
+            this.undockedSizable = false;
             this.Load += new System.EventHandler(this.PluginForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -928,9 +1007,9 @@ namespace CHIMERA_MAKER.UI
             ((System.ComponentModel.ISupportInitialize)(this.nmBlastlayerAmount)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nmBlastCount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nmAddressInterval)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trkbRandomStatePerc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmASBlastCount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmASAddressInterval)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trkbASRandomStatePerc)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -972,26 +1051,30 @@ namespace CHIMERA_MAKER.UI
         private System.Windows.Forms.Button btnHelp;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Button btnReload;
+        private System.Windows.Forms.Button btnASReload;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TrackBar trkbRandomStatePerc;
-        private System.Windows.Forms.Button btnRefreshDomains;
-        private System.Windows.Forms.Button btnSelectRandom;
-        private System.Windows.Forms.Button btnSelectAll;
-        public System.Windows.Forms.NumericUpDown nmBlastCount;
-        public System.Windows.Forms.NumericUpDown nmAddressInterval;
-        public RTCV.UI.Components.Controls.ListBoxExtended lbStates;
-        public RTCV.UI.Components.Controls.ListBoxExtended lbMemoryDomains;
-        private System.Windows.Forms.Button btnGenerateFrankenState;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TrackBar trkbASRandomStatePerc;
+        private System.Windows.Forms.Button btnASUnselectAllStates;
+        private System.Windows.Forms.Button btnASSelectRandomStates;
+        private System.Windows.Forms.Button btnASSelectAllStates;
+        public RTCV.UI.Components.Controls.ListBoxExtended lbASStates;
+        public RTCV.UI.Components.Controls.ListBoxExtended lbASMemoryDomains;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.CheckBox cbSendToStash2;
+        private System.Windows.Forms.Button btnASUnselectAllDomains;
+        private System.Windows.Forms.Button btnASSelectAllDomains;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Button btnASToStockpile;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button btnASSelectRandomDomains;
+        public System.Windows.Forms.NumericUpDown nmASBlastCount;
+        public System.Windows.Forms.NumericUpDown nmASAddressInterval;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Button btnASToStash;
     }
 }
