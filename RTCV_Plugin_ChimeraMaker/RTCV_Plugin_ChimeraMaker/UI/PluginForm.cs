@@ -357,7 +357,18 @@ namespace CHIMERA_MAKER.UI
         {
             if(tabControl1.SelectedTab == tabPage3)
             {
-                MessageBox.Show("WIP instructions of Amalgastate generator.");
+                MessageBox.Show(@"Welcome to the Amalgastate Generator.
+
+This allows you to mix the contents of the domains of multiple states together.
+
+For Step 1, you have to select which Domains will be included in the merge.
+
+For Step 2, you have to select which states will be mixed, you can use the slider and the Select random states button to configure and select a random amount of states (useful if you have a large amount of states).
+
+For Step 3, the Intensity is the number of Blasts the resulting Layer will have, Precision is how many Bytes big these Blasts will be.
+
+The states MUST be from the same system, but they CAN be from different games. This allows you to Amalgastate of two or more different games.
+");
             }
             else
                 MessageBox.Show(
@@ -378,7 +389,6 @@ It's time to use the program. Build the stockpile and SAVE IT. Go to the Chimera
         }
 
 
-
         private (List<BlastLayer>, List<StashKey>) GenerateStateTemplates()
         {
             string[] SELECTED_DOMAINS = lbASMemoryDomains.SelectedItems.Cast<string>().ToArray();
@@ -392,7 +402,6 @@ It's time to use the program. Build the stockpile and SAVE IT. Go to the Chimera
             bls = LocalNetCoreRouter.QueryRoute<List<BlastLayer>>(Ep.EMU_SIDE, Commands.GET_TEMPLATES, (object)Tuple.Create(SELECTED_DOMAINS, stashKeys, ((int)nmASAddressInterval.Value)));
             return (bls, stashKeys);
         }
-
 
         //Amalgastate//
         private void btnASToStash_Click(object sender, EventArgs e)
@@ -505,9 +514,22 @@ It's time to use the program. Build the stockpile and SAVE IT. Go to the Chimera
                 amountToSelect = 2;
             }
 
+            //no fucking clue how this code works, but it makes sure that each item in lbASStates is only acted upon once.
+            HashSet<int> selectedIndices = new HashSet<int>();
+            int totalItems = lbASStates.Items.Count;
+
             for (int i = 0; i < amountToSelect; i++)
             {
-                lbASStates.SetSelected(RND.Next(lbASStates.Items.Count), true); 
+                int randomIndex;
+
+                do
+                {
+                    randomIndex = RND.Next(totalItems);
+                }
+                while (selectedIndices.Contains(randomIndex));
+
+                selectedIndices.Add(randomIndex);
+                lbASStates.SetSelected(randomIndex, true);
             }
         }
 
@@ -546,7 +568,7 @@ It's time to use the program. Build the stockpile and SAVE IT. Go to the Chimera
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void bbtnASSelectAllDomains_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < lbASMemoryDomains.Items.Count; i++)
             {
@@ -554,7 +576,7 @@ It's time to use the program. Build the stockpile and SAVE IT. Go to the Chimera
             }
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void btnASUnselectAllDomains_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < lbASMemoryDomains.Items.Count; i++)
             {
@@ -564,6 +586,11 @@ It's time to use the program. Build the stockpile and SAVE IT. Go to the Chimera
 
         private void btnASSelectRandomDomains_Click(object sender, EventArgs e)
         {
+            if (lbASMemoryDomains.Items.Count < 1)
+            {
+                return;
+            }
+
             for (int i = 0; i < lbASMemoryDomains.Items.Count; i++)
             {
                 lbASMemoryDomains.SetSelected(i, false);
@@ -581,6 +608,18 @@ It's time to use the program. Build the stockpile and SAVE IT. Go to the Chimera
             if (lbASMemoryDomains.SelectedItems.Count == 0)
             {
                 lbASMemoryDomains.SetSelected(RND.Next(lbASMemoryDomains.Items.Count), true);
+            }
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedTab == tabPage3)
+            {
+                btnHelp.Text = "Click for Amalgastate Maker help.";
+            }
+            else
+            {
+                btnHelp.Text = "Click for Chimera Maker help.";
             }
         }
     }

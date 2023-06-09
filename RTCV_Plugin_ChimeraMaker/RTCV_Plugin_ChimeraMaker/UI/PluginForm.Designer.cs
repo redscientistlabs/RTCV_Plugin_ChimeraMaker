@@ -85,12 +85,12 @@ namespace CHIMERA_MAKER.UI
             this.lbASStates = new RTCV.UI.Components.Controls.ListBoxExtended();
             this.trkbASRandomStatePerc = new System.Windows.Forms.TrackBar();
             this.lbASMemoryDomains = new RTCV.UI.Components.Controls.ListBoxExtended();
+            this.btnASToStash = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.btnHelp = new System.Windows.Forms.Button();
             this.logoPanel = new System.Windows.Forms.Panel();
-            this.btnASToStash = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -125,6 +125,7 @@ namespace CHIMERA_MAKER.UI
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(867, 577);
             this.tabControl1.TabIndex = 2;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -694,7 +695,7 @@ namespace CHIMERA_MAKER.UI
             this.btnASToStockpile.Size = new System.Drawing.Size(118, 84);
             this.btnASToStockpile.TabIndex = 166;
             this.btnASToStockpile.Tag = "color:dark2";
-            this.btnASToStockpile.Text = "To Stockpile";
+            this.btnASToStockpile.Text = "To Stockpile?????? ";
             this.btnASToStockpile.UseVisualStyleBackColor = false;
             this.btnASToStockpile.Click += new System.EventHandler(this.btnASToStockpile_Click);
             // 
@@ -725,7 +726,7 @@ namespace CHIMERA_MAKER.UI
             this.btnASUnselectAllDomains.Tag = "color:light1";
             this.btnASUnselectAllDomains.Text = "Unselect all";
             this.btnASUnselectAllDomains.UseVisualStyleBackColor = false;
-            this.btnASUnselectAllDomains.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnASUnselectAllDomains.Click += new System.EventHandler(this.btnASUnselectAllDomains_Click);
             // 
             // btnASSelectAllDomains
             // 
@@ -743,7 +744,7 @@ namespace CHIMERA_MAKER.UI
             this.btnASSelectAllDomains.Tag = "color:light1";
             this.btnASSelectAllDomains.Text = "Select all";
             this.btnASSelectAllDomains.UseVisualStyleBackColor = false;
-            this.btnASSelectAllDomains.Click += new System.EventHandler(this.button2_Click);
+            this.btnASSelectAllDomains.Click += new System.EventHandler(this.bbtnASSelectAllDomains_Click);
             // 
             // btnASReload
             // 
@@ -898,6 +899,22 @@ namespace CHIMERA_MAKER.UI
             this.lbASMemoryDomains.TabIndex = 148;
             this.lbASMemoryDomains.Tag = "color:dark3";
             // 
+            // btnASToStash
+            // 
+            this.btnASToStash.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.btnASToStash.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.btnASToStash.FlatAppearance.BorderSize = 0;
+            this.btnASToStash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnASToStash.ForeColor = System.Drawing.Color.OrangeRed;
+            this.btnASToStash.Location = new System.Drawing.Point(571, 433);
+            this.btnASToStash.Name = "btnASToStash";
+            this.btnASToStash.Size = new System.Drawing.Size(122, 84);
+            this.btnASToStash.TabIndex = 146;
+            this.btnASToStash.Tag = "color:dark2";
+            this.btnASToStash.Text = "To Stash";
+            this.btnASToStash.UseVisualStyleBackColor = false;
+            this.btnASToStash.Click += new System.EventHandler(this.btnASToStash_Click);
+            // 
             // label19
             // 
             this.label19.AutoSize = true;
@@ -938,10 +955,10 @@ namespace CHIMERA_MAKER.UI
             this.btnHelp.ForeColor = System.Drawing.Color.White;
             this.btnHelp.Location = new System.Drawing.Point(19, 178);
             this.btnHelp.Name = "btnHelp";
-            this.btnHelp.Size = new System.Drawing.Size(142, 35);
+            this.btnHelp.Size = new System.Drawing.Size(311, 35);
             this.btnHelp.TabIndex = 3;
             this.btnHelp.Tag = "color:dark3";
-            this.btnHelp.Text = "Click for help";
+            this.btnHelp.Text = "Click for Chimera Maker help.";
             this.btnHelp.UseVisualStyleBackColor = false;
             this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
@@ -954,22 +971,6 @@ namespace CHIMERA_MAKER.UI
             this.logoPanel.Size = new System.Drawing.Size(867, 154);
             this.logoPanel.TabIndex = 0;
             this.logoPanel.Tag = "color:dark1";
-            // 
-            // btnASToStash
-            // 
-            this.btnASToStash.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.btnASToStash.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.btnASToStash.FlatAppearance.BorderSize = 0;
-            this.btnASToStash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnASToStash.ForeColor = System.Drawing.Color.OrangeRed;
-            this.btnASToStash.Location = new System.Drawing.Point(571, 433);
-            this.btnASToStash.Name = "btnASToStash";
-            this.btnASToStash.Size = new System.Drawing.Size(122, 84);
-            this.btnASToStash.TabIndex = 146;
-            this.btnASToStash.Tag = "color:dark2";
-            this.btnASToStash.Text = "To Stash";
-            this.btnASToStash.UseVisualStyleBackColor = false;
-            this.btnASToStash.Click += new System.EventHandler(this.btnASToStash_Click);
             // 
             // PluginForm
             // 
