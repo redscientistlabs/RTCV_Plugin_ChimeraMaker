@@ -91,6 +91,7 @@ namespace CHIMERA_MAKER.UI
             this.label20 = new System.Windows.Forms.Label();
             this.btnHelp = new System.Windows.Forms.Button();
             this.logoPanel = new System.Windows.Forms.Panel();
+            this.btn_Rebuild = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -543,6 +544,7 @@ namespace CHIMERA_MAKER.UI
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.tabPage3.Controls.Add(this.btn_Rebuild);
             this.tabPage3.Controls.Add(this.nmASBlastCount);
             this.tabPage3.Controls.Add(this.nmASAddressInterval);
             this.tabPage3.Controls.Add(this.label18);
@@ -972,6 +974,24 @@ namespace CHIMERA_MAKER.UI
             this.logoPanel.TabIndex = 0;
             this.logoPanel.Tag = "color:dark1";
             // 
+            // btn_Rebuild
+            // 
+            this.btn_Rebuild.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_Rebuild.BackColor = System.Drawing.Color.Gray;
+            this.btn_Rebuild.FlatAppearance.BorderSize = 0;
+            this.btn_Rebuild.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Rebuild.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.btn_Rebuild.ForeColor = System.Drawing.Color.White;
+            this.btn_Rebuild.Location = new System.Drawing.Point(572, 338);
+            this.btn_Rebuild.Name = "btn_Rebuild";
+            this.btn_Rebuild.Size = new System.Drawing.Size(251, 37);
+            this.btn_Rebuild.TabIndex = 174;
+            this.btn_Rebuild.TabStop = false;
+            this.btn_Rebuild.Tag = "color:light1";
+            this.btn_Rebuild.Text = "Rebuild Cache";
+            this.btn_Rebuild.UseVisualStyleBackColor = false;
+            this.btn_Rebuild.Click += new System.EventHandler(this.btn_Rebuild_Click);
+            // 
             // PluginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -1077,5 +1097,6 @@ namespace CHIMERA_MAKER.UI
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button btnASToStash;
+        private System.Windows.Forms.Button btn_Rebuild;
     }
 }

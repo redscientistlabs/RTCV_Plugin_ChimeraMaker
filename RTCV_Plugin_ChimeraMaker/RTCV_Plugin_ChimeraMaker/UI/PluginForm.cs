@@ -18,7 +18,6 @@ namespace CHIMERA_MAKER.UI
     using System.IO;
     using System.Text.RegularExpressions;
     using RTCV.UI.Modular;
-    using System.Windows.Shapes;
 
     public partial class PluginForm : ComponentForm, IColorize
     {
@@ -426,12 +425,14 @@ It's time to use the program. Build the stockpile and SAVE IT. Go to the Chimera
                 var bls = GenerateStateTemplates();
                 var state = savestates[lbASStates.SelectedItems.Cast<string>().ToArray()[RtcCore.RND.Next(lbASStates.SelectedItems.Count)]];
                 List<BlastUnit> blastUnits = new List<BlastUnit>();
+
                 for (int i = 0; i < ((int)nmASBlastCount.Value); i++)
                 {
                     var bl = bls.Item1[RND.Next(bls.Item1.Count)];
                     var blastUnit = bl.Layer[RND.Next(bl.Layer.Count)];
                     blastUnits.Add(blastUnit);
                 }
+
                 key = (StashKey)bls.Item2[RND.Next(bls.Item2.Count)].Clone();
                 key.BlastLayer = new BlastLayer(blastUnits);
 
@@ -621,6 +622,19 @@ It's time to use the program. Build the stockpile and SAVE IT. Go to the Chimera
             {
                 btnHelp.Text = "Click for Chimera Maker help.";
             }
+        }
+
+        private void btn_Rebuild_Click(object sender, EventArgs e)
+        {
+            var chimeraMakerDir = Path.Combine(PluginDir, "CHIMERAMAKER");
+            if (!Directory.Exists(chimeraMakerDir)){
+                Directory.CreateDirectory(chimeraMakerDir);
+            }
+            foreach(var f in Directory.GetFiles(chimeraMakerDir))
+            {
+                File.Delete(f);
+            }
+
         }
     }
 }
