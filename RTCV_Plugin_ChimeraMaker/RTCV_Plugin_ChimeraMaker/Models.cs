@@ -23,6 +23,10 @@ namespace CHIMERA_MAKER
         public static bool useRamCache = true;
         public static void ResetCache()
         {
+            //clear dictonary
+            RamCache.Clear();
+
+
             if (!Directory.Exists(chimeraMakerCacheDir))
                 Directory.CreateDirectory(chimeraMakerCacheDir);
 

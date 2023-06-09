@@ -196,7 +196,7 @@ namespace CHIMERA_MAKER.UI
                     file.Delete();
                 }
 
-                MessageBox.Show($"The incompatible files have been removed from folder.");
+                MessageBox.Show($"The incompatible files have been removed from the folder.");
                 IncompatibleRoms = new List<FileInfo>();
                 btnRemoveIncompatibleRoms.Enabled = (IncompatibleRoms.Count > 0);
             }
@@ -360,13 +360,19 @@ namespace CHIMERA_MAKER.UI
 
 This allows you to mix the contents of the domains of multiple states together.
 
-For Step 1, you have to select which Domains will be included in the merge.
+For Step 0, create some Savestates via the Glitch Harvester. YOU MUST LOAD A STATE VIA THE GLITCH HARVESTER FIRST. Then populate the Domain and State boxes by clicking the Reload Domains and States boxes button. 
 
-For Step 2, you have to select which states will be mixed, you can use the slider and the Select random states button to configure and select a random amount of states (useful if you have a large amount of states).
+For Step 1, select which Domains will be included in the Amalgastate generation.
+
+For Step 2, select which states will be mixed, you can use the slider and the Select random States button to configure and select a random amount of States (useful if you have a large amount of States).
 
 For Step 3, the Intensity is the number of Blasts the resulting Layer will have, Precision is how many Bytes big these Blasts will be.
 
-The states MUST be from the same system, but they CAN be from different games. This allows you to Amalgastate of two or more different games.
+For Step 4, build a cache of your savestates. THIS MAY TAKE A WHILE depending on the amount of Savestates you have and what system they are for. By default these are stored in your systems RAM, if you have little RAM or the Savestates are from a newer system it may be wise to cache these on your systems drive instead by clicking the checkbox.
+
+For Step 5, generate the Amalgastates. You can choose to Reload, Blast and Stash or just Blast and Stash. The first one is similar to doing a Blast in the Glitch Harvester, while the second is similar to doing a Manual Blast. Both will stash the resulting BlastLayer they create into the Stash.
+
+The states MUST be from the same system, but they CAN be from different games. This allows you to create an Amalgastate of two or more different games.
 ");
             }
             else
@@ -560,6 +566,12 @@ It's time to use the program. Build the stockpile and SAVE IT. Go to the Chimera
 
         private void btnReload_Click(object sender, EventArgs e)
         {
+            //force user to create a new cache if they reload the states.
+            btnASToStash.Enabled = true;
+            btnBlastAndStash.Enabled = true;
+            btn_Rebuild.Enabled = true;
+
+
             lbASMemoryDomains.Items.Clear();
             if (MemoryDomains.MemoryInterfaces != null)
             {
@@ -653,14 +665,24 @@ It's time to use the program. Build the stockpile and SAVE IT. Go to the Chimera
 
         private void btn_Rebuild_Click(object sender, EventArgs e)
         {
+
+            // don't do anythign if there are no states to do anything with
+            if (lbASStates.Items.Count < 2)
+            {
+                return;
+            }
+
+            btn_Rebuild.Enabled = false;
+            btnASToStash.Enabled = true;
+            btnBlastAndStash.Enabled = true;
+
             ChimeraMakerCache.ResetCache();
 
             var allStateKeys = lbASStates.Items.Cast<string>().ToArray();
             var allStashKeys = allStateKeys.Select(it => savestates[it]).ToArray();
             ChimeraMakerCache.RebuildCache(allStashKeys);
 
-            btnASToStash.Enabled = true;
-            btnBlastAndStash.Enabled = true;
+
         }
 
         private void btnBlastAndStash_Click(object sender, EventArgs e)
@@ -670,7 +692,7 @@ It's time to use the program. Build the stockpile and SAVE IT. Go to the Chimera
 
         private void cbUseDrive_CheckedChanged(object sender, EventArgs e)
         {
-            ChimeraMakerCache.useRamCache = cbUseDrive.Checked;
+            ChimeraMakerCache.useRamCache = !cbUseDrive.Checked;
         }
     }
 }
