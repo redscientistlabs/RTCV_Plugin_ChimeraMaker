@@ -64,6 +64,7 @@ namespace CHIMERA_MAKER.UI
             this.nmBlastlayerAmount = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label23 = new System.Windows.Forms.Label();
             this.btn_Rebuild = new System.Windows.Forms.Button();
             this.nmASBlastCount = new System.Windows.Forms.NumericUpDown();
             this.nmASAddressInterval = new System.Windows.Forms.NumericUpDown();
@@ -72,7 +73,6 @@ namespace CHIMERA_MAKER.UI
             this.label17 = new System.Windows.Forms.Label();
             this.btnASSelectRandomDomains = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
-            this.btnASToStockpile = new System.Windows.Forms.Button();
             this.label24 = new System.Windows.Forms.Label();
             this.btnASUnselectAllDomains = new System.Windows.Forms.Button();
             this.btnASSelectAllDomains = new System.Windows.Forms.Button();
@@ -92,7 +92,8 @@ namespace CHIMERA_MAKER.UI
             this.label20 = new System.Windows.Forms.Label();
             this.btnHelp = new System.Windows.Forms.Button();
             this.logoPanel = new System.Windows.Forms.Panel();
-            this.label23 = new System.Windows.Forms.Label();
+            this.btnBlastAndStash = new System.Windows.Forms.Button();
+            this.cbUseDrive = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -577,6 +578,8 @@ namespace CHIMERA_MAKER.UI
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.tabPage3.Controls.Add(this.cbUseDrive);
+            this.tabPage3.Controls.Add(this.btnBlastAndStash);
             this.tabPage3.Controls.Add(this.label23);
             this.tabPage3.Controls.Add(this.btn_Rebuild);
             this.tabPage3.Controls.Add(this.nmASBlastCount);
@@ -586,7 +589,6 @@ namespace CHIMERA_MAKER.UI
             this.tabPage3.Controls.Add(this.label17);
             this.tabPage3.Controls.Add(this.btnASSelectRandomDomains);
             this.tabPage3.Controls.Add(this.label16);
-            this.tabPage3.Controls.Add(this.btnASToStockpile);
             this.tabPage3.Controls.Add(this.label24);
             this.tabPage3.Controls.Add(this.btnASUnselectAllDomains);
             this.tabPage3.Controls.Add(this.btnASSelectAllDomains);
@@ -613,6 +615,18 @@ namespace CHIMERA_MAKER.UI
             this.tabPage3.Tag = "color:normal";
             this.tabPage3.Text = "Amalgastate Generator";
             // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.label23.ForeColor = System.Drawing.Color.White;
+            this.label23.Location = new System.Drawing.Point(378, 162);
+            this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(165, 13);
+            this.label23.TabIndex = 175;
+            this.label23.Text = "Step 4: Gather memory dumps";
+            // 
             // btn_Rebuild
             // 
             this.btn_Rebuild.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -621,7 +635,7 @@ namespace CHIMERA_MAKER.UI
             this.btn_Rebuild.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Rebuild.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.btn_Rebuild.ForeColor = System.Drawing.Color.White;
-            this.btn_Rebuild.Location = new System.Drawing.Point(381, 209);
+            this.btn_Rebuild.Location = new System.Drawing.Point(381, 186);
             this.btn_Rebuild.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Rebuild.Name = "btn_Rebuild";
             this.btn_Rebuild.Size = new System.Drawing.Size(167, 24);
@@ -751,23 +765,6 @@ namespace CHIMERA_MAKER.UI
             this.label16.TabIndex = 167;
             this.label16.Text = "Step 5: Generate Amalgastates";
             // 
-            // btnASToStockpile
-            // 
-            this.btnASToStockpile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.btnASToStockpile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.btnASToStockpile.FlatAppearance.BorderSize = 0;
-            this.btnASToStockpile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnASToStockpile.ForeColor = System.Drawing.Color.OrangeRed;
-            this.btnASToStockpile.Location = new System.Drawing.Point(469, 281);
-            this.btnASToStockpile.Margin = new System.Windows.Forms.Padding(2);
-            this.btnASToStockpile.Name = "btnASToStockpile";
-            this.btnASToStockpile.Size = new System.Drawing.Size(79, 55);
-            this.btnASToStockpile.TabIndex = 166;
-            this.btnASToStockpile.Tag = "color:dark2";
-            this.btnASToStockpile.Text = "To Stockpile?????? ";
-            this.btnASToStockpile.UseVisualStyleBackColor = false;
-            this.btnASToStockpile.Click += new System.EventHandler(this.btnASToStockpile_Click);
-            // 
             // label24
             // 
             this.label24.AutoSize = true;
@@ -841,7 +838,7 @@ namespace CHIMERA_MAKER.UI
             // 
             this.label22.AutoSize = true;
             this.label22.ForeColor = System.Drawing.Color.White;
-            this.label22.Location = new System.Drawing.Point(386, 99);
+            this.label22.Location = new System.Drawing.Point(375, 82);
             this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(188, 13);
@@ -871,7 +868,7 @@ namespace CHIMERA_MAKER.UI
             // 
             this.label15.AutoSize = true;
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(506, 141);
+            this.label15.Location = new System.Drawing.Point(500, 124);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(53, 13);
@@ -920,7 +917,7 @@ namespace CHIMERA_MAKER.UI
             // 
             this.label14.AutoSize = true;
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(386, 141);
+            this.label14.Location = new System.Drawing.Point(380, 124);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(13, 13);
@@ -948,7 +945,7 @@ namespace CHIMERA_MAKER.UI
             // 
             // trkbASRandomStatePerc
             // 
-            this.trkbASRandomStatePerc.Location = new System.Drawing.Point(378, 115);
+            this.trkbASRandomStatePerc.Location = new System.Drawing.Point(372, 98);
             this.trkbASRandomStatePerc.Margin = new System.Windows.Forms.Padding(2);
             this.trkbASRandomStatePerc.Maximum = 100;
             this.trkbASRandomStatePerc.Minimum = 1;
@@ -980,6 +977,7 @@ namespace CHIMERA_MAKER.UI
             // btnASToStash
             // 
             this.btnASToStash.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.btnASToStash.Enabled = false;
             this.btnASToStash.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.btnASToStash.FlatAppearance.BorderSize = 0;
             this.btnASToStash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -990,7 +988,7 @@ namespace CHIMERA_MAKER.UI
             this.btnASToStash.Size = new System.Drawing.Size(81, 55);
             this.btnASToStash.TabIndex = 146;
             this.btnASToStash.Tag = "color:dark2";
-            this.btnASToStash.Text = "To Stash";
+            this.btnASToStash.Text = "Reload, Blast and Stash";
             this.btnASToStash.UseVisualStyleBackColor = false;
             this.btnASToStash.Click += new System.EventHandler(this.btnASToStash_Click);
             // 
@@ -1056,17 +1054,35 @@ namespace CHIMERA_MAKER.UI
             this.logoPanel.TabIndex = 0;
             this.logoPanel.Tag = "color:dark1";
             // 
-            // label23
+            // btnBlastAndStash
             // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
-            this.label23.ForeColor = System.Drawing.Color.White;
-            this.label23.Location = new System.Drawing.Point(378, 185);
-            this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(165, 13);
-            this.label23.TabIndex = 175;
-            this.label23.Text = "Step 4: Gather memory dumps";
+            this.btnBlastAndStash.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.btnBlastAndStash.Enabled = false;
+            this.btnBlastAndStash.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.btnBlastAndStash.FlatAppearance.BorderSize = 0;
+            this.btnBlastAndStash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBlastAndStash.ForeColor = System.Drawing.Color.OrangeRed;
+            this.btnBlastAndStash.Location = new System.Drawing.Point(472, 281);
+            this.btnBlastAndStash.Margin = new System.Windows.Forms.Padding(2);
+            this.btnBlastAndStash.Name = "btnBlastAndStash";
+            this.btnBlastAndStash.Size = new System.Drawing.Size(81, 55);
+            this.btnBlastAndStash.TabIndex = 176;
+            this.btnBlastAndStash.Tag = "color:dark2";
+            this.btnBlastAndStash.Text = "Blast and Stash";
+            this.btnBlastAndStash.UseVisualStyleBackColor = false;
+            this.btnBlastAndStash.Click += new System.EventHandler(this.btnBlastAndStash_Click);
+            // 
+            // cbUseDrive
+            // 
+            this.cbUseDrive.AutoSize = true;
+            this.cbUseDrive.ForeColor = System.Drawing.Color.White;
+            this.cbUseDrive.Location = new System.Drawing.Point(378, 215);
+            this.cbUseDrive.Name = "cbUseDrive";
+            this.cbUseDrive.Size = new System.Drawing.Size(184, 17);
+            this.cbUseDrive.TabIndex = 177;
+            this.cbUseDrive.Text = "Cache on drive instead of RAM";
+            this.cbUseDrive.UseVisualStyleBackColor = true;
+            this.cbUseDrive.CheckedChanged += new System.EventHandler(this.cbUseDrive_CheckedChanged);
             // 
             // PluginForm
             // 
@@ -1163,7 +1179,6 @@ namespace CHIMERA_MAKER.UI
         private System.Windows.Forms.Button btnASUnselectAllDomains;
         private System.Windows.Forms.Button btnASSelectAllDomains;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Button btnASToStockpile;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button btnASSelectRandomDomains;
         public System.Windows.Forms.NumericUpDown nmASBlastCount;
@@ -1174,5 +1189,7 @@ namespace CHIMERA_MAKER.UI
         private System.Windows.Forms.Button btnASToStash;
         private System.Windows.Forms.Button btn_Rebuild;
         private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Button btnBlastAndStash;
+        private System.Windows.Forms.CheckBox cbUseDrive;
     }
 }

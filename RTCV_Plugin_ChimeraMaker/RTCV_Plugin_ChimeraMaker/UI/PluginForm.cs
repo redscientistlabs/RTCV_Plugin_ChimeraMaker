@@ -423,7 +423,7 @@ It's time to use the program. Build the stockpile and SAVE IT. Go to the Chimera
                 var bytes = new byte[len];
                 for(long i = init;i< init+len; i++)
                 {
-                    bytes[i] = data[i];
+                    bytes[i-init] = data[i];
                 }
                 return bytes;
             }
@@ -457,7 +457,7 @@ It's time to use the program. Build the stockpile and SAVE IT. Go to the Chimera
         }
 
         //Amalgastate//
-        private void btnASToStash_Click(object sender, EventArgs e)
+        public void ExecuteAmalgastate(bool reload = true)
         {
             if (lbASStates.SelectedItems.Count < 2 && lbASMemoryDomains.SelectedItems.Count < 1)
             {
@@ -479,71 +479,37 @@ It's time to use the program. Build the stockpile and SAVE IT. Go to the Chimera
 
             StashKey key = new StashKey();
 
-                var bls = GenerateStateTemplates();
+            var bls = GenerateStateTemplates();
 
-                var state = savestates[lbASStates.SelectedItems.Cast<string>().ToArray()[RtcCore.RND.Next(lbASStates.SelectedItems.Count)]];
-                List<BlastUnit> blastUnits = new List<BlastUnit>();
+            var state = savestates[lbASStates.SelectedItems.Cast<string>().ToArray()[RtcCore.RND.Next(lbASStates.SelectedItems.Count)]];
+            List<BlastUnit> blastUnits = new List<BlastUnit>();
 
-                for (int i = 0; i < ((int)nmASBlastCount.Value); i++)
-                {
-                    var bl = bls.Item1[RND.Next(bls.Item1.Count)];
-                    var blastUnit = bl.Layer[RND.Next(bl.Layer.Count)];
-                    blastUnits.Add(blastUnit);
-                }
+            for (int i = 0; i < ((int)nmASBlastCount.Value); i++)
+            {
+                var bl = bls.Item1[RND.Next(bls.Item1.Count)];
+                var blastUnit = bl.Layer[RND.Next(bl.Layer.Count)];
+                blastUnits.Add(blastUnit);
+            }
 
-                key = (StashKey)bls.Item2[RND.Next(bls.Item2.Count)].Clone();
-                key.BlastLayer = new BlastLayer(blastUnits);
+            key = (StashKey)bls.Item2[RND.Next(bls.Item2.Count)].Clone();
+            key.BlastLayer = new BlastLayer(blastUnits);
 
-                StockpileManagerUISide.StashHistory.Add(key);
+            StockpileManagerUISide.StashHistory.Add(key);
 
-                S.GET<StashHistoryForm>().DontLoadSelectedStash = true;
-                S.GET<StashHistoryForm>().RefreshStashHistorySelectLast();
-                S.GET<StashHistoryForm>().DontLoadSelectedStash = true;
+            S.GET<StashHistoryForm>().DontLoadSelectedStash = true;
+            S.GET<StashHistoryForm>().RefreshStashHistorySelectLast();
+            S.GET<StashHistoryForm>().DontLoadSelectedStash = true;
 
-                //execute chimera here
-                StockpileManagerUISide.ApplyStashkey(key);
+            //execute chimera here
+            StockpileManagerUISide.ApplyStashkey(key, reload);
         }
 
-        private void btnASToStockpile_Click(object sender, EventArgs e)
+
+        private void btnASToStash_Click(object sender, EventArgs e)
         {
-
-            if (lbASStates.SelectedItems.Count < 2 && lbASMemoryDomains.SelectedItems.Count < 1)
-            {
-                MessageBox.Show("You must create at least two states and select at least one domain before continuing.");
-                return;
-            }
-            if (lbASStates.SelectedItems.Count < 2)
-            {
-                MessageBox.Show("You must create at least two states before continuing.");
-                return;
-            }
-            if (lbASMemoryDomains.SelectedItems.Count < 1)
-            {
-                MessageBox.Show("You must select at least one domain before continuing.");
-                return;
-            }
-
-
-            var templates = GenerateStateTemplates();
-            for (int i = 0; i < templates.Item2.Count; i++)
-            {
-                var bl = templates.Item1[i];
-                StashKey sk = (StashKey)templates.Item2[i].Clone();
-                sk.BlastLayer = bl;
-
-                //push to stash
-                StockpileManagerUISide.StashHistory.Add(sk);
-                S.GET<StashHistoryForm>().DontLoadSelectedStash = true;
-                S.GET<StashHistoryForm>().RefreshStashHistorySelectLast();
-                S.GET<StashHistoryForm>().DontLoadSelectedStash = true;
-                S.GET<StockpileManagerForm>().dgvStockpile.ClearSelection();
-                S.GET<StashHistoryForm>().DontLoadSelectedStash = false;
-
-
-                //push to stockpile
-                S.GET<StashHistoryForm>().AddStashToStockpile(false);
-            }
+            ExecuteAmalgastate(true);
         }
+
 
         private void btnUnselectAllStates_Click(object sender, EventArgs e)
         {
@@ -617,6 +583,9 @@ It's time to use the program. Build the stockpile and SAVE IT. Go to the Chimera
                 savestates.Add(text, state.StashKey);
                 stateCount++;
             }
+
+            btnASToStash.Enabled = false;
+            btnBlastAndStash.Enabled = false;
         }
 
         private void btnSelectAll_Click(object sender, EventArgs e)
@@ -690,6 +659,18 @@ It's time to use the program. Build the stockpile and SAVE IT. Go to the Chimera
             var allStashKeys = allStateKeys.Select(it => savestates[it]).ToArray();
             ChimeraMakerCache.RebuildCache(allStashKeys);
 
+            btnASToStash.Enabled = true;
+            btnBlastAndStash.Enabled = true;
+        }
+
+        private void btnBlastAndStash_Click(object sender, EventArgs e)
+        {
+            ExecuteAmalgastate(false);
+        }
+
+        private void cbUseDrive_CheckedChanged(object sender, EventArgs e)
+        {
+            ChimeraMakerCache.useRamCache = cbUseDrive.Checked;
         }
     }
 }
