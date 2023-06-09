@@ -398,8 +398,62 @@ It's time to use the program. Build the stockpile and SAVE IT. Go to the Chimera
             {
                 stashKeys.Add(savestates[state_name]);
             }
-            bls = LocalNetCoreRouter.QueryRoute<List<BlastLayer>>(Ep.EMU_SIDE, Commands.GET_TEMPLATES, (object)Tuple.Create(SELECTED_DOMAINS, stashKeys, ((int)nmASAddressInterval.Value)));
+
+            bls = GenerateStateTemplates2(SELECTED_DOMAINS, stashKeys, (int)nmASAddressInterval.Value);
+
+
             return (bls, stashKeys);
+        }
+
+        private List<BlastLayer> GenerateStateTemplates2(string[] SELECTED_DOMAINS, List<StashKey> states, int precision)
+        {
+            List<BlastLayer> bls = new List<BlastLayer>();
+            foreach (var state in states)
+            {
+                bls.Add(BlastlayerFromState(SELECTED_DOMAINS, precision, state));
+            }
+            return bls;
+        }
+
+        private BlastLayer BlastlayerFromState(string[] domains, int precision, StashKey state)
+        {
+
+            byte[] PeekBytes(byte[] data, long init, int len)
+            {
+                var bytes = new byte[len];
+                for(long i = init;i< init+len; i++)
+                {
+                    bytes[i] = data[i];
+                }
+                return bytes;
+            }
+
+            List<BlastUnit> bus = new List<BlastUnit>();
+            foreach (var domain in domains)
+            {
+                var dump = ChimeraMakerCache.GetDump(state);
+                byte[] domainDump;
+                
+                if(dump.MemoryDumps.TryGetValue(domain, out byte[] data))
+                {
+                    domainDump = data;
+                }
+                else
+                {
+                    continue;
+                }
+
+                for (long i = 0; i < domainDump.Length; i += precision)
+                {
+                    if (i + precision > domainDump.Length)
+                    {
+                        break;
+                    }
+                    var bu = new BlastUnit(PeekBytes(domainDump, i, precision), domain, i, precision, false);
+                    bus.Add(bu);
+                }
+            }
+            return bus.Count > 0 ? new BlastLayer(bus) : new BlastLayer();
         }
 
         //Amalgastate//
@@ -421,8 +475,12 @@ It's time to use the program. Build the stockpile and SAVE IT. Go to the Chimera
                 return;
             }
 
+
+
             StashKey key = new StashKey();
+
                 var bls = GenerateStateTemplates();
+
                 var state = savestates[lbASStates.SelectedItems.Cast<string>().ToArray()[RtcCore.RND.Next(lbASStates.SelectedItems.Count)]];
                 List<BlastUnit> blastUnits = new List<BlastUnit>();
 
@@ -515,22 +573,22 @@ It's time to use the program. Build the stockpile and SAVE IT. Go to the Chimera
                 amountToSelect = 2;
             }
 
-            //no fucking clue how this code works, but it makes sure that each item in lbASStates is only acted upon once.
-            HashSet<int> selectedIndices = new HashSet<int>();
+            List<int> alreadySelected = new List<int>();
             int totalItems = lbASStates.Items.Count;
 
             for (int i = 0; i < amountToSelect; i++)
             {
-                int randomIndex;
+                int idOfPossibleItemToSelect;
 
-                do
-                {
-                    randomIndex = RND.Next(totalItems);
+                do  //this makes it so that if it randomly selects one that it already was selected then
+                {   //it will try again until it finds one that wasn't selected yet
+
+                    idOfPossibleItemToSelect = RND.Next(totalItems); //get a random one
                 }
-                while (selectedIndices.Contains(randomIndex));
+                while (alreadySelected.Contains(idOfPossibleItemToSelect)); //iterate until it found one that wasn't already selected
 
-                selectedIndices.Add(randomIndex);
-                lbASStates.SetSelected(randomIndex, true);
+                alreadySelected.Add(idOfPossibleItemToSelect); //make sure we don't reselect it next time
+                lbASStates.SetSelected(idOfPossibleItemToSelect, true); //select the item
             }
         }
 
@@ -626,14 +684,11 @@ It's time to use the program. Build the stockpile and SAVE IT. Go to the Chimera
 
         private void btn_Rebuild_Click(object sender, EventArgs e)
         {
-            var chimeraMakerDir = Path.Combine(PluginDir, "CHIMERAMAKER");
-            if (!Directory.Exists(chimeraMakerDir)){
-                Directory.CreateDirectory(chimeraMakerDir);
-            }
-            foreach(var f in Directory.GetFiles(chimeraMakerDir))
-            {
-                File.Delete(f);
-            }
+            ChimeraMakerCache.ResetCache();
+
+            var allStateKeys = lbASStates.Items.Cast<string>().ToArray();
+            var allStashKeys = allStateKeys.Select(it => savestates[it]).ToArray();
+            ChimeraMakerCache.RebuildCache(allStashKeys);
 
         }
     }

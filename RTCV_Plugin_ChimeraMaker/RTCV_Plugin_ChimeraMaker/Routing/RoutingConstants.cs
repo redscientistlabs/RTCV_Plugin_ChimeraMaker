@@ -25,6 +25,7 @@ namespace CHIMERA_MAKER
         //To emu side
         public const string BYTESGET = Ep.PREFIX + nameof(BYTESGET);
         public const string GET_TEMPLATES = Ep.PREFIX + nameof(GET_TEMPLATES);
+        public const string GET_TEMPLATE = Ep.PREFIX + nameof(GET_TEMPLATE);
 
         //To rtc side
         public const string BYTESGET_CALLBACK = Ep.PREFIX + nameof(BYTESGET_CALLBACK);

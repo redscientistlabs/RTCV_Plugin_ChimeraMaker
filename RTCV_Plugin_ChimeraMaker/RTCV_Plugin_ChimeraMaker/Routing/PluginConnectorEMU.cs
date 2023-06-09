@@ -6,6 +6,7 @@ using RTCV.NetCore;
 using RTCV.UI;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace CHIMERA_MAKER
@@ -61,6 +62,23 @@ namespace CHIMERA_MAKER
                         }
                         break;
                     }
+                case Commands.GET_TEMPLATE:
+                    try
+                    {
+                        StashKey sk = (StashKey)message.objectValue;
+                        var returnValue = this.GenerateStateTemplate(sk);
+                        e.setReturnValue(returnValue);
+                        break;
+                    }
+                    catch (Exception ex)
+                    {
+                        if (!(ex is ArgumentNullException))
+                        {
+                            NullReferenceException referenceException = ex as NullReferenceException;
+                            break;
+                        }
+                        break;
+                    }
             }
             return e.returnMessage;
         }
@@ -88,6 +106,17 @@ namespace CHIMERA_MAKER
             return bus.Count > 0 ? new BlastLayer(bus) : new BlastLayer();
         }
 
+        private CustomStateDump GetCustomStateDump(string stateId)
+        {
+            var dump = new CustomStateDump();
+            foreach (var itf in MemoryDomains.MemoryInterfaces)
+                dump.MemoryDumps[itf.Key] = itf.Value.GetDump();
+
+            dump.StateId = stateId;
+
+            return dump;
+        }
+
         private List<BlastLayer> GenerateStateTemplates(string[] SELECTED_DOMAINS, List<StashKey> states, int precision)
         {
             List<BlastLayer> bls = new List<BlastLayer>();
@@ -99,6 +128,14 @@ namespace CHIMERA_MAKER
                 bls.Add(BlastlayerFromState(SELECTED_DOMAINS, precision));
             }
             return bls;
+        }
+
+        private CustomStateDump GenerateStateTemplate(StashKey state)
+        {
+            SyncObjectSingleton.FormExecute(() => StockpileManagerEmuSide.LoadRomNet(state));
+            StockpileManagerEmuSide.LoadStateNet(state, false);
+
+            return GetCustomStateDump(state.Key);
         }
 
         //private byte[] GetByteArr(long start, long end, string domain)
